@@ -1,2 +1,2 @@
 # domoguide-lab.fr
-Site de vulgarisation dmotique
+Site de vulgarisation domotique
