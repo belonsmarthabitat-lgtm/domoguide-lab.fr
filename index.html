@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DomoGuide — Le guide domotique simple, sécurisé et accessible</title>
+  <meta name="description" content="Trouvez la solution domotique idéale pour votre logement en 2 minutes. Guides, comparatifs et conseils de sécurité pour débutants et bricoleurs.">
+  <style>
+    /* RESET & BASE STYLES */
+    :root {
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --secondary: #0f172a;
+      --accent: #f59e0b;
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #334155;
+      --text-dark: #0f172a;
+      --border-color: #e2e8f0;
+      --danger: #ef4444;
+      --warning-bg: #fef2f2;
+      --radius: 8px;
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--text-main);
+      background-color: var(--bg-light);
+    }
+
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* LAYOUT & CONTAINER */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+    header { background: var(--card-bg); border-bottom: 1px solid var(--border-color); padding: 1rem 0; position: sticky; top: 0; z-index: 100; }
+    .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
+    .logo-container { display: flex; align-items: center; gap: 0.75rem; font-weight: 700; font-size: 1.25rem; color: var(--text-dark); }
+    .logo-container img { height: 40px; width: auto; }
+    nav ul { display: flex; gap: 1.5rem; list-style: none; }
+    nav a { color: var(--text-main); font-weight: 500; }
+    nav a:hover { color: var(--primary); text-decoration: none; }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+      text-align: center;
+      cursor: pointer;
+      border: none;
+      transition: background-color 0.2s, transform 0.1s;
+    }
+    .btn-primary { background-color: var(--primary); color: #fff; }
+    .btn-primary:hover { background-color: var(--primary-hover); text-decoration: none; }
+    .btn-affiliate { background-color: var(--accent); color: #0f172a; }
+    .btn-affiliate:hover { background-color: #d97706; color: #fff; text-decoration: none; }
+
+    /* HERO & ALERT */
+    .hero { text-align: center; padding: 3.5rem 0 2rem 0; }
+    .hero h1 { font-size: 2.5rem; color: var(--text-dark); margin-bottom: 1rem; line-height: 1.2; }
+    .hero p { font-size: 1.125rem; max-width: 700px; margin: 0 auto 2rem auto; }
+
+    .alert-security {
+      background-color: var(--warning-bg);
+      border-left: 4px solid var(--danger);
+      padding: 1.25rem;
+      border-radius: var(--radius);
+      margin-bottom: 2.5rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .alert-security h3 { color: var(--danger); font-size: 1.1rem; margin-bottom: 0.25rem; }
+
+    /* QUIZ SECTION */
+    .quiz-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-color);
+      margin-bottom: 3rem;
+    }
+    .quiz-step { display: none; }
+    .quiz-step.active { display: block; }
+    .quiz-step h3 { margin-bottom: 1rem; color: var(--text-dark); }
+    .options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem; }
+    .option-btn {
+      background: var(--bg-light);
+      border: 2px solid var(--border-color);
+      padding: 1rem;
+      border-radius: var(--radius);
+      text-align: left;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .option-btn:hover { border-color: var(--primary); background: #eff6ff; }
+
+    /* COMPARISON TABLE */
+    .table-section { margin-bottom: 3.5rem; }
+    .table-section h2 { font-size: 1.75rem; color: var(--text-dark); margin-bottom: 1.5rem; text-align: center; }
+    .table-container { overflow-x: auto; background: var(--card-bg); border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--border-color); }
+    table { width: 100%; border-collapse: collapse; text-align: left; }
+    th, td { padding: 1rem 1.25rem; border-bottom: 1px solid var(--border-color); }
+    th { background: #f1f5f9; color: var(--text-dark); font-weight: 600; }
+    tr:last-child td { border-bottom: none; }
+
+    /* ARTICLES GRID */
+    .articles-section { margin-bottom: 3.5rem; }
+    .articles-section h2 { font-size: 1.75rem; color: var(--text-dark); margin-bottom: 1.5rem; text-align: center; }
+    .articles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .article-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .article-card h3 { color: var(--text-dark); margin-bottom: 0.5rem; }
+    .article-card p { font-size: 0.95rem; margin-bottom: 1.25rem; flex-grow: 1; }
+
+    /* CONTACT FORM */
+    .contact-section {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-color);
+      max-width: 700px;
+      margin: 0 auto 4rem auto;
+    }
+    .contact-section h2 { font-size: 1.75rem; color: var(--text-dark); margin-bottom: 0.5rem; text-align: center; }
+    .contact-section p.subtitle { text-align: center; margin-bottom: 2rem; color: #64748b; }
+    
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-dark); }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    /* FOOTER */
+    footer { background: var(--secondary); color: #94a3b8; padding: 3rem 0 1.5rem 0; font-size: 0.9rem; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+    .footer-col h4 { color: #fff; margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.5rem; }
+    .footer-col a { color: #94a3b8; }
+    .footer-col a:hover { color: #fff; }
+    .copyright { text-align: center; border-top: 1px solid #334155; padding-top: 1.5rem; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 1.8rem; }
+      nav ul { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container nav-wrapper">
+      <div class="logo-container">
+        <a href="index.html" style="display: flex; align-items: center; gap: 0.75rem; color: inherit; text-decoration: none;">
+          <img src="logo.png" alt="DomoGuide Logo">
+          <span>DomoGuide</span>
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#quiz">Guide Interactif</a></li>
+          <li><a href="#comparatif">Comparatif</a></li>
+          <li><a href="#articles">Guides &amp; Articles</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <h1>Trouvez la solution domotique idéale en 2 minutes</h1>
+      <p>Marre du jargon technique ? Répondez à 5 questions simples et découvrez la technologie adaptée à votre logement, votre budget et votre niveau en bricolage.</p>
+    </section>
+
+    <!-- SÉCURITÉ ÉLECTRIQUE ALERT -->
+    <div class="alert-security">
+      <div style="font-size: 1.5rem;">⚡</div>
+      <div>
+        <h3>Rappel de Sécurité Électrique</h3>
+        <p>L'électricité comporte des risques majeurs d'électrocution et d'incendie. Coupez systématiquement le disjoncteur général et effectuez une Vérification d'Absence de Tension (VAT) avant toute intervention. En cas de doute, faites appel à un électricien qualifié.</p>
+      </div>
+    </div>
+
+    <!-- QUIZ INTERACTIF -->
+    <section id="quiz" class="quiz-card">
+      <div id="quiz-intro">
+        <h2>Quiz Interactif : Quel profil domotique êtes-vous ?</h2>
+        <p style="margin-bottom: 1.5rem;">Découvrez la solution la plus adaptée à vos besoins en quelques clics.</p>
+        <button class="btn btn-primary" onclick="startQuiz()">Lancer le diagnostic</button>
+      </div>
+
+      <!-- Question 1 -->
+      <div class="quiz-step" id="step-1">
+        <h3>1. Quel est votre statut d'occupation ?</h3>
+        <div class="options-grid">
+          <button class="option-btn" onclick="nextStep(1, 'locataire')">Locataire (Pas de gros travaux)</button>
+          <button class="option-btn" onclick="nextStep(1, 'proprietaire')">Propriétaire (Bricolage possible)</button>
+        </div>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="quiz-step" id="step-2">
+        <h3>2. Quel est votre niveau en bricolage / électricité ?</h3>
+        <div class="options-grid">
+          <button class="option-btn" onclick="nextStep(2, 'debutant')">Niveau 0 (Je branche sur une prise)</button>
+          <button class="option-btn" onclick="nextStep(2, 'intermediaire')">Bricoleur averti (Je sais couper le disjoncteur)</button>
+        </div>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="quiz-step" id="step-3">
+        <h3>3. Quelle est votre priorité principale ?</h3>
+        <div class="options-grid">
+          <button class="option-btn" onclick="nextStep(3, 'confort')">Confort &amp; Éclairage</button>
+          <button class="option-btn" onclick="nextStep(3, 'energie')">Économies d'énergie</button>
+          <button class="option-btn" onclick="nextStep(3, 'securite')">Sécurité &amp; Alarme</button>
+        </div>
+      </div>
+
+      <!-- Résultat Quiz -->
+      <div class="quiz-step" id="step-result">
+        <h3>Votre recommandation personnalisée :</h3>
+        <div id="result-content" style="margin: 1.5rem 0; font-size: 1.1rem;"></div>
+        <button class="btn btn-primary" onclick="resetQuiz()">Recommencer le quiz</button>
+      </div>
+    </section>
+
+    <!-- TABLEAU COMPARATIF avec liens affiliés Domadoo -->
+    <section id="comparatif" class="table-section">
+      <h2>Matrice de Recommandation &amp; Solutions</h2>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Profil Utilisateur</th>
+              <th>Solution Recommandée</th>
+              <th>Avantages clés</th>
+              <th>Matériel suggéré</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Profil 1 : Plug &amp; Play</strong><br><small>Locataires, débutants</small></td>
+              <td>Prises &amp; Ampoules Wi-Fi / Bluetooth</td>
+              <td>Installation en 2 minutes, zéro câblage, budget réduit.</td>
+              <td><a href="https://www.domadoo.fr/fr/?domid=147" target="_blank" rel="noopener sponsored" class="btn btn-affiliate">Packs Prises &amp; Éclairage</a></td>
+            </tr>
+            <tr>
+              <td><strong>Profil 2 : Équilibré &amp; Évolutif</strong><br><small>Propriétaires, passionnés</small></td>
+              <td>Box Domotique + Protocoles sans fil (Zigbee / Matter)</td>
+              <td>100% local possible, portée étendue, très évolutif.</td>
+              <td><a href="https://www.domadoo.fr/fr/1125-zigbee?domid=147" target="_blank" rel="noopener sponsored" class="btn btn-affiliate">Box &amp; Capteurs Zigbee</a></td>
+            </tr>
+            <tr>
+              <td><strong>Profil 3 : Encastré &amp; Rénovation</strong><br><small>Bricoleurs avertis, électriciens</small></td>
+              <td>Micromodules derrière interrupteurs &amp; volets</td>
+              <td>Invariable esthétique, conserve les interrupteurs d'origine.</td>
+              <td><a href="https://www.domadoo.fr/fr/?domid=147" target="_blank" rel="noopener sponsored" class="btn btn-affiliate">Micromodules Sonoff / Shelly</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ARTICLES & GUIDES -->
+    <section id="articles" class="articles-section">
+      <h2>Guides &amp; Articles Conseils</h2>
+      <div class="articles-grid">
+        
+        <div class="article-card">
+          <div>
+            <h3>Par quoi commencer quand on n'y connaît rien ?</h3>
+            <p>Guide pas à pas pour bien démarrer son installation domotique sans se faire piéger ni faire sauter les plombs.</p>
+          </div>
+          <a href="article-1.html" class="btn btn-primary">Lire l'article</a>
+        </div>
+
+        <div class="article-card">
+          <div>
+            <h3>Zigbee, Z-Wave, Matter : Le lexique simple</h3>
+            <p>Comprendre les protocoles de communication sans prise de tête pour faire les bons choix de matériel.</p>
+          </div>
+          <a href="article-2.html" class="btn btn-primary">Lire l'article</a>
+        </div>
+
+        <div class="article-card">
+          <div>
+            <h3>Domotiser ses volets &amp; interrupteurs : Le Fil Neutre</h3>
+            <p>Comprendre le rôle du fil neutre, vérifier sa présence et domotiser ses volets roulants en toute sécurité.</p>
+          </div>
+          <a href="article-3.html" class="btn btn-primary">Lire l'article</a>
+        </div>
+
+        <div class="article-card">
+          <div>
+            <h3>Sécurité Électrique en 230V &amp; Règle des 5 étapes</h3>
+            <p>Toutes les règles d'or, l'utilisation du VAT et la méthodologie essentielle avant de toucher à vos câbles.</p>
+          </div>
+          <a href="securite-electrique.html" class="btn btn-primary">Lire l'article</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FORMULAIRE DE CONTACT FORMSPREE -->
+    <section id="contact" class="contact-section">
+      <h2>Une question ? Un conseil sur-mesure ?</h2>
+      <p class="subtitle">Remplissez le formulaire ci-dessous, nous vous répondons sous 24 à 48h.</p>
+      
+      <form action="https://formspree.io/f/xvzlgdqk" method="POST" class="contact-form">
+        <div class="form-group">
+          <label for="name">Votre nom</label>
+          <input type="text" id="name" name="name" placeholder="Ex: Jean Dupont" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Votre e-mail</label>
+          <input type="email" id="email" name="email" placeholder="nom@exemple.fr" required>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Sujet de votre demande</label>
+          <select id="subject" name="subject" required>
+            <option value="">-- Choisissez un sujet --</option>
+            <option value="Conseil Matériel">Conseil sur le choix de matériel</option>
+            <option value="Aide Installation">Aide sur une installation (Câblage / Fil Neutre)</option>
+            <option value="Autre">Autre question</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Votre message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Expliquez votre projet ou votre problème..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Envoyer mon message</button>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>DomoGuide</h4>
+          <p>Le site indépendant de conseils domotiques simples, pratiques et sécurisés.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#quiz">Guide Interactif</a></li>
+            <li><a href="#comparatif">Comparatif Matériel</a></li>
+            <li><a href="#articles">Tous les Articles</a></li>
+            <li><a href="securite-electrique.html">Sécurité Électrique</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Mentions &amp; Liens</h4>
+          <ul>
+            <li><a href="#">Mentions Légales</a></li>
+            <li><a href="#">Politique de Confidentialité</a></li>
+            <li><a href="#">Divulgation d'Affiliation</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2026 DomoGuide - Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT DU QUIZ -->
+  <script>
+    let userAnswers = {};
+
+    function startQuiz() {
+      document.getElementById('quiz-intro').style.display = 'none';
+      document.getElementById('step-1').classList.add('active');
+    }
+
+    function nextStep(currentStep, answer) {
+      userAnswers[currentStep] = answer;
+      document.getElementById(`step-${currentStep}`).classList.remove('active');
+
+      if (currentStep < 3) {
+        document.getElementById(`step-${currentStep + 1}`).classList.add('active');
+      } else {
+        showResults();
+      }
+    }
+
+    function showResults() {
+      document.getElementById('step-result').classList.add('active');
+      const resultDiv = document.getElementById('result-content');
+      
+      if (userAnswers[1] === 'locataire' || userAnswers[2] === 'debutant') {
+        resultDiv.innerHTML = "<strong>Profil Plug & Play recommandé :</strong> Orientez-vous vers des prises connectées Wi-Fi et des ampoules Zigbee/Wi-Fi sans travaux. Simple, rapide et démontable en 5 minutes.<br><br><a href='https://www.domadoo.fr/fr/?domid=147' target='_blank' rel='noopener sponsored' class='btn btn-affiliate'>Voir les kits de démarrage Domadoo</a>";
+      } else if (userAnswers[2] === 'intermediaire') {
+        resultDiv.innerHTML = "<strong>Profil Équilibré / Encastré recommandé :</strong> Vous avez les compétences pour couper le disjoncteur et brancher des micromodules (Sonoff, Shelly) ou installer une box domotique dédiée (Homey, Jeedom, Home Assistant).<br><br><a href='https://www.domadoo.fr/fr/1125-zigbee?domid=147' target='_blank' rel='noopener sponsored' class='btn btn-affiliate'>Découvrir les micromodules Domadoo</a>";
+      } else {
+        resultDiv.innerHTML = "<strong>Profil Évolutif recommandé :</strong> Optez pour un réseau maillé Zigbee / Matter avec box domotique pour une autonomie totale et un contrôle local.<br><br><a href='https://www.domadoo.fr/fr/1125-zigbee?domid=147' target='_blank' rel='noopener sponsored' class='btn btn-affiliate'>Parcourir l'écosystème Zigbee sur Domadoo</a>";
+      }
+    }
+
+    function resetQuiz() {
+      userAnswers = {};
+      document.getElementById('step-result').classList.remove('active');
+      document.getElementById('quiz-intro').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
