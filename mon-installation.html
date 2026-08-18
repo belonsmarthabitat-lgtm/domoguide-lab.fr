@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon installation domotique — DomoGuide Lab</title>
+  <meta name="description" content="Découvrez l'installation domotique réelle derrière DomoGuide Lab : Home Assistant, Aqara, TaHoma, AirSend et équipements utilisés sur le terrain et en test.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--primary:#0284c7;--secondary:#0f172a;--accent:#10b981;--bg:#f8fafc;--text:#334155;--muted:#64748b;--border:#e2e8f0;--radius:12px;--shadow:0 4px 6px -1px rgba(0,0,0,.05)}
+    *{box-sizing:border-box;margin:0;padding:0}body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(--bg);line-height:1.7}a{color:var(--primary);text-decoration:none}a:hover{text-decoration:underline}
+    header{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}.nav-container{max-width:1200px;margin:auto;padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}.logo{display:flex;align-items:center;gap:.6rem;font-weight:800;color:var(--secondary)}.logo img{height:46px;width:auto}.logo span{color:var(--primary)}nav ul{display:flex;list-style:none;gap:1.5rem}nav a{color:var(--text);font-weight:600}
+    .page-header{background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);color:#fff;padding:3.5rem 1.5rem;text-align:center}.page-header h1{font-size:2.35rem;margin-bottom:.6rem}.page-header p{color:#94a3b8;max-width:720px;margin:auto}
+    main{max-width:950px;margin:0 auto;padding:3rem 1.5rem 4rem}.card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:2.25rem;box-shadow:var(--shadow);margin-bottom:1.5rem}.badge{display:inline-block;background:#ecfdf5;color:#047857;font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;padding:.35rem .75rem;border-radius:999px;margin-bottom:1rem}.card h2{color:var(--secondary);font-size:1.65rem;margin-bottom:.8rem}.card p{color:var(--muted);margin-bottom:1rem}.stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem;margin:1.5rem 0}.stack-item{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:1rem}.stack-item strong{display:block;color:var(--secondary);margin-bottom:.25rem}.stack-item span{color:var(--muted);font-size:.9rem}.cta{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.25rem}.btn{display:inline-block;background:var(--primary);color:#fff;padding:.75rem 1.15rem;border-radius:8px;font-weight:700}.btn:hover{background:#0369a1;color:#fff;text-decoration:none}.btn.secondary{background:var(--bg);color:var(--primary);border:1px solid var(--border)}
+    footer{background:var(--secondary);color:#94a3b8;text-align:center;padding:2rem 1.5rem;font-size:.875rem}footer a{color:#cbd5e1}
+    @media(max-width:768px){.nav-container{flex-direction:column}nav ul{flex-wrap:wrap;justify-content:center;gap:.75rem 1rem}.page-header h1{font-size:1.85rem}.card{padding:1.5rem}}
+  </style>
+</head>
+<body>
+  <header><div class="nav-container"><a href="index.html" class="logo"><img src="logo.png" alt="DomoGuide"><span>DomoGuide <strong>Lab</strong></span></a><nav><ul><li><a href="index.html">Accueil</a></li><li><a href="articles.html">Guides &amp; Tutoriels</a></li><li><a href="mon-installation.html">Mon Installation</a></li><li><a href="index.html#contact">Contact</a></li></ul></nav></div></header>
+
+  <section class="page-header"><h1>🏠 Le Lab &amp; mon installation</h1><p>Une installation domotique réelle, utilisée au quotidien pour expérimenter, tester et documenter les solutions présentées sur DomoGuide.</p></section>
+
+  <main>
+    <section class="card">
+      <span class="badge">Installation réelle</span>
+      <h2>Mon environnement domotique actuel</h2>
+      <p>Chez moi, le cœur de l'installation repose sur <strong>Home Assistant</strong>, complété par plusieurs passerelles et écosystèmes afin de tester des usages concrets et des solutions réellement rencontrées chez les particuliers.</p>
+      <div class="stack">
+        <div class="stack-item"><strong>Home Assistant</strong><span>Orchestration centrale, automatisations et supervision locale.</span></div>
+        <div class="stack-item"><strong>Aqara</strong><span>Capteurs, périphériques et écosystème Zigbee.</span></div>
+        <div class="stack-item"><strong>TaHoma</strong><span>Intégration et pilotage d'équipements compatibles Somfy.</span></div>
+        <div class="stack-item"><strong>AirSend</strong><span>Passerelle utilisée pour l'intégration de certains automatismes et équipements radio.</span></div>
+      </div>
+      <p>Cette installation évolue en permanence. La page sera progressivement enrichie avec les équipements utilisés, les schémas d'intégration, les choix techniques, les tests et les retours d'expérience.</p>
+    </section>
+
+    <section class="card">
+      <span class="badge">Expérience terrain</span>
+      <h2>Pourquoi un « Lab » ?</h2>
+      <p>Je suis technicien en bâtiment connecté et électricien. Mon activité terrain couvre notamment l'électricité générale, les bornes IRVE, le solaire, les courants faibles, les alarmes, la vidéoprotection, les automatismes de portails et la sécurisation de sites éoliens.</p>
+      <p>DomoGuide me permet de relier cette expérience professionnelle aux essais réalisés chez moi : l'objectif est de présenter des solutions utiles, compréhensibles et réalistes plutôt que de simples fiches théoriques.</p>
+      <div class="cta"><a href="articles.html" class="btn">Voir les guides →</a><a href="index.html#contact" class="btn secondary">Me contacter</a></div>
+    </section>
+  </main>
+
+  <footer><p>&copy; 2026 DomoGuide Lab. Tous droits réservés.</p><p style="margin-top:.5rem"><a href="index.html#contact">Contact</a> — <a href="mentions-legales.html">Mentions légales</a> — <a href="politique-de-confidentialite.html">Politique de confidentialité</a></p></footer>
+</body>
+</html>
