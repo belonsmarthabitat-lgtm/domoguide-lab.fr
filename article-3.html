@@ -1,281 +1,109 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Domotiser ses volets & interrupteurs : Le Fil Neutre — DomoGuide</title>
-  <meta name="description" content="Comprendre le rôle du fil neutre, vérifier sa présence dans vos interrupteurs et domotiser vos volets roulants en toute sécurité.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volets, interrupteurs et fil neutre : comprendre avant d'installer — DomoGuide</title><meta name="description" content="Comprendre le rôle du fil neutre, vérifier son câblage et préparer l'intégration d'un micromodule pour volets ou éclairage en toute sécurité.">
+<link rel="canonical" href="https://domoguide-lab.fr/article-3.html">
+<meta name="robots" content="index, follow, max-image-preview:large"><meta name="theme-color" content="#0d665d">
+<meta property="og:type" content="article"><meta property="og:locale" content="fr_FR"><meta property="og:site_name" content="DomoGuide">
+<meta property="og:title" content="Volets, interrupteurs et fil neutre : comprendre avant d'installer — DomoGuide"><meta property="og:description" content="Comprendre le rôle du fil neutre, vérifier son câblage et préparer l'intégration d'un micromodule pour volets ou éclairage en toute sécurité."><meta property="og:url" content="https://domoguide-lab.fr/article-3.html">
+<meta property="og:image" content="https://domoguide-lab.fr/social-card.png"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png"><link rel="icon" href="favicon-192.png" sizes="192x192" type="image/png"><link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    /* RESET & BASE STYLES */
-    :root {
-      --primary: #0284c7;
-      --primary-hover: #0369a1;
-      --secondary: #0f172a;
-      --accent: #10b981;
-      --bg-light: #f8fafc;
-      --card-bg: #ffffff;
-      --text-main: #334155;
-      --text-dark: #0f172a;
-      --border-color: #e2e8f0;
-      --danger: #ef4444;
-      --warning-bg: #fef2f2;
-      --radius: 8px;
-      --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+    :root{
+      --primary:#0d665d;--primary-hover:#084f49;--primary-soft:#eaf5f2;
+      --secondary:#273436;--accent:#c9aa72;--accent-soft:#f8f1e5;
+      --bg-light:#f6f8f7;--card-bg:#fff;--text-dark:#273436;--text-main:#3d4b4d;
+      --text-muted:#6d7b7d;--border:#dce5e3;--danger:#a33d36;--danger-bg:#fff4f1;
+      --radius:16px;--shadow:0 8px 24px rgba(39,52,54,.07);--shadow-lg:0 18px 45px rgba(39,52,54,.11)
     }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      line-height: 1.6;
-      color: var(--text-main);
-      background-color: var(--bg-light);
-    }
-
-    a { color: var(--primary); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    /* LAYOUT & CONTAINER */
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
-    .content-container { max-width: 850px; margin: 0 auto; }
-    
-    header { background: var(--card-bg); border-bottom: 1px solid var(--border-color); padding: 1rem 0; position: sticky; top: 0; z-index: 100; }
-    .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
-    .logo-container { display: flex; align-items: center; gap: 0.75rem; font-weight: 700; font-size: 1.25rem; color: var(--text-dark); }
-    .logo-container img { height: 40px; width: auto; }
-    nav ul { display: flex; gap: 1.5rem; list-style: none; }
-    nav a { color: var(--text-main); font-weight: 500; }
-    nav a:hover { color: var(--primary); text-decoration: none; }
-
-    /* BUTTONS */
-    .btn {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      border-radius: var(--radius);
-      font-weight: 600;
-      text-align: center;
-      cursor: pointer;
-      border: none;
-      transition: background-color 0.2s, transform 0.1s;
-    }
-    .btn-primary { background-color: var(--primary); color: #fff; }
-    .btn-primary:hover { background-color: var(--primary-hover); text-decoration: none; }
-    .btn-affiliate { background-color: var(--accent); color: #0f172a; }
-    .btn-affiliate:hover { background-color: #d97706; color: #fff; text-decoration: none; }
-
-    /* ALERT SECURITY */
-    .alert-security {
-      background-color: var(--warning-bg);
-      border-left: 4px solid var(--danger);
-      padding: 1.25rem;
-      border-radius: var(--radius);
-      margin-bottom: 2.5rem;
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-    }
-    .alert-security h3 { color: var(--danger); font-size: 1.1rem; margin-bottom: 0.25rem; }
-
-    /* ARTICLE STYLES */
-    .article-header { padding: 3rem 0 1.5rem 0; text-align: left; }
-    .breadcrumb { font-size: 0.9rem; color: #64748b; margin-bottom: 1rem; }
-    .breadcrumb a { color: #64748b; }
-    .breadcrumb a:hover { color: var(--primary); }
-    .article-header h1 { font-size: 2.25rem; color: var(--text-dark); margin-bottom: 1rem; line-height: 1.25; }
-    .meta { font-size: 0.9rem; color: #64748b; margin-bottom: 1.5rem; }
-
-    .article-body {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      padding: 2.5rem;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border-color);
-      margin-bottom: 3.5rem;
-    }
-
-    .article-body h2 { font-size: 1.5rem; color: var(--text-dark); margin: 2rem 0 1rem 0; border-bottom: 2px solid var(--bg-light); padding-bottom: 0.5rem; }
-    .article-body h2:first-of-type { margin-top: 0; }
-    .article-body h3 { font-size: 1.2rem; color: var(--text-dark); margin: 1.5rem 0 0.75rem 0; }
-    .article-body p { margin-bottom: 1.25rem; line-height: 1.7; }
-    .article-body ul, .article-body ol { margin: 0 0 1.25rem 1.5rem; }
-    .article-body li { margin-bottom: 0.5rem; }
-
-    .callout {
-      background: var(--bg-light);
-      border-left: 4px solid var(--primary);
-      padding: 1.25rem;
-      border-radius: var(--radius);
-      margin: 1.5rem 0;
-    }
-    .callout h4 { color: var(--text-dark); margin-bottom: 0.5rem; }
-
-    .affiliate-box {
-      background: #fffbe2;
-      border: 1px solid #fef3c7;
-      border-left: 4px solid var(--accent);
-      padding: 1.5rem;
-      border-radius: var(--radius);
-      margin: 2rem 0;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .affiliate-box-title { font-weight: 700; color: var(--text-dark); }
-
-    /* FOOTER */
-    footer { background: var(--secondary); color: #94a3b8; padding: 3rem 0 1.5rem 0; font-size: 0.9rem; }
-    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
-    .footer-col h4 { color: #fff; margin-bottom: 1rem; }
-    .footer-col ul { list-style: none; }
-    .footer-col ul li { margin-bottom: 0.5rem; }
-    .footer-col a { color: #94a3b8; }
-    .footer-col a:hover { color: #fff; }
-    .copyright { text-align: center; border-top: 1px solid #334155; padding-top: 1.5rem; }
-
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .article-header h1 { font-size: 1.75rem; }
-      .article-body { padding: 1.5rem; }
-      nav ul { display: none; }
-    }
+    *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+    body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--text-main);background:var(--bg-light);line-height:1.7}
+    a{color:var(--primary);text-decoration:none;transition:.2s ease}a:hover{color:var(--primary-hover)}
+    img{max-width:100%;height:auto}
+    .site-header{background:rgba(255,255,255,.96);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+    .nav-container{max-width:1200px;margin:auto;padding:.85rem 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1.5rem}
+    .logo{display:flex;align-items:center;gap:.7rem;color:var(--secondary);font-size:1.2rem;font-weight:800;white-space:nowrap}
+    .logo img{height:48px;width:auto;display:block}.logo strong{color:var(--primary)}
+    nav ul{display:flex;list-style:none;gap:1.55rem;align-items:center}nav a{color:var(--secondary);font-weight:650;font-size:.92rem}nav a:hover,nav a.active{color:var(--primary)}
+    .article-hero{background:linear-gradient(132deg,#273436 0%,#1f3434 48%,#0d665d 120%);color:#fff;padding:4.6rem 1.5rem 3.6rem;position:relative;overflow:hidden}
+    .article-hero:after{content:"";position:absolute;width:360px;height:360px;border-radius:50%;border:1px solid rgba(201,170,114,.28);right:-160px;top:-210px}
+    .article-hero-inner{max-width:920px;margin:auto;position:relative;z-index:1}.breadcrumb{font-size:.86rem;color:#c6d2d1;margin-bottom:1.1rem}.breadcrumb a{color:#e6cf9f}
+    .eyebrow{color:#e5c995;font-size:.78rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase;margin-bottom:.75rem}
+    h1{font-size:clamp(2.15rem,5vw,3.45rem);line-height:1.08;letter-spacing:-.035em;max-width:920px}
+    .lead{margin-top:1rem;max-width:790px;color:#d3dddd;font-size:1.06rem}.meta{display:flex;flex-wrap:wrap;gap:.7rem 1rem;margin-top:1.35rem;color:#c5d1cf;font-size:.88rem}
+    .page-wrap{max-width:1100px;margin:auto;padding:2.6rem 1.5rem 4rem}.content-grid{display:grid;grid-template-columns:minmax(0,760px) 250px;gap:2rem;align-items:start}
+    .article-body{background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:2.2rem}
+    .article-body>p:first-child{font-size:1.07rem;color:var(--text-dark)}.article-body h2{color:var(--secondary);font-size:1.58rem;line-height:1.25;margin:2.3rem 0 .85rem}
+    .article-body h3{color:var(--secondary);font-size:1.17rem;line-height:1.35;margin:1.6rem 0 .55rem}.article-body p{margin-bottom:1.1rem}
+    .article-body ul,.article-body ol{margin:0 0 1.4rem 1.25rem}.article-body li{margin-bottom:.55rem;padding-left:.15rem}
+    .highlight,.callout{background:var(--primary-soft);border:1px solid #cfe7e1;border-left:5px solid var(--primary);border-radius:12px;padding:1.15rem 1.2rem;margin:1.5rem 0}
+    .method{background:var(--accent-soft);border:1px solid #ead7b4;border-left:5px solid var(--accent);border-radius:12px;padding:1.15rem 1.2rem;margin:1.5rem 0}
+    .security{background:var(--danger-bg);border:1px solid #f2d7d0;border-left:5px solid var(--danger);border-radius:var(--radius);padding:1.2rem 1.3rem;margin-bottom:1.3rem;display:flex;gap:.9rem}
+    .security strong{display:block;color:#7f302b;margin-bottom:.25rem}.security p{color:#80524e;font-size:.94rem}
+    .table-wrap{overflow-x:auto;margin:1.4rem 0}.comparison-table{width:100%;border-collapse:collapse;font-size:.91rem;min-width:650px}
+    .comparison-table th,.comparison-table td{padding:.8rem;border:1px solid var(--border);text-align:left;vertical-align:top}.comparison-table th{background:var(--primary-soft);color:var(--secondary)}
+    .cta{background:linear-gradient(120deg,var(--secondary),#30494a);border-left:5px solid var(--accent);border-radius:14px;padding:1.35rem;margin:2rem 0;color:#fff}
+    .cta p{color:#d5dfde;margin-bottom:1rem}.btn{display:inline-flex;align-items:center;justify-content:center;padding:.78rem 1rem;border-radius:10px;font-size:.91rem;font-weight:750}
+    .btn-primary{background:var(--primary);color:#fff}.btn-primary:hover{background:var(--primary-hover);color:#fff}.btn-affiliate{background:var(--accent);color:var(--secondary)}
+    .sidebar{position:sticky;top:88px}.side-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:1.15rem;box-shadow:var(--shadow);margin-bottom:1rem}
+    .side-card h2{font-size:1rem;color:var(--secondary);margin-bottom:.65rem}.side-card ul{list-style:none}.side-card li+li{margin-top:.55rem}.side-card a{font-size:.88rem;line-height:1.35}.side-card p{font-size:.88rem;color:var(--text-muted)}
+    .next-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1.3rem}.next-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.1rem;box-shadow:var(--shadow)}
+    .next-card span{display:block;color:var(--primary);font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.35rem}.next-card strong{color:var(--secondary);line-height:1.35}
+    .checklist{background:var(--bg-light);border:1px solid var(--border);border-radius:12px;padding:1rem 1.15rem;margin:1rem 0}.check{display:flex;gap:.7rem;margin:.8rem 0}.check span{color:var(--primary);font-weight:800}
+    footer{background:var(--secondary);color:#b8c4c3;padding:2.4rem 1.5rem;text-align:center;font-size:.875rem;border-top:4px solid var(--accent)}footer a{color:#e2ebe9}.footer-tagline{color:#dfc596;font-weight:650;margin-top:.65rem}
+    @media(max-width:900px){.content-grid{grid-template-columns:1fr}.sidebar{position:static;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.side-card{margin:0}}
+    @media(max-width:720px){.nav-container{flex-direction:column;gap:.7rem;padding:.7rem 1rem}nav ul{flex-wrap:wrap;justify-content:center;gap:.55rem 1rem}.article-hero{padding:3.6rem 1rem 3rem}.page-wrap{padding:2rem 1rem 3rem}.article-body{padding:1.35rem}.sidebar,.next-links{grid-template-columns:1fr}}
   </style>
-</head>
-<body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="container nav-wrapper">
-      <div class="logo-container">
-        <a href="index.html" style="display: flex; align-items: center; gap: 0.75rem; color: inherit; text-decoration: none;">
-          <img src="logo.png" alt="DomoGuide Logo">
-          <span>DomoGuide</span>
-        </a>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="index.html#quiz">Guide Interactif</a></li>
-          <li><a href="articles.html">Guides &amp; Tutoriels</a></li>
-          <li><a href="mon-installation.html">Mon Installation</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<script type="application/ld+json">{
+"@context":"https://schema.org","@type":"Article","headline":"Volets, interrupteurs et fil neutre : comprendre avant d'installer",
+"description":"Comprendre le rôle du fil neutre, vérifier son câblage et préparer l'intégration d'un micromodule pour volets ou éclairage en toute sécurité.","inLanguage":"fr-FR","mainEntityOfPage":"https://domoguide-lab.fr/article-3.html",
+"author":{"@type":"Organization","name":"DomoGuide"},"publisher":{"@type":"Organization","name":"DomoGuide","url":"https://domoguide-lab.fr/"}
+}</script></head><body><header class="site-header"><div class="nav-container">
+<a href="index.html" class="logo"><img src="logo.png" alt="Logo DomoGuide"><span>DomoGuide<strong>Lab</strong></span></a>
+<nav aria-label="Navigation principale"><ul>
+<li><a href="index.html">Accueil</a></li><li><a class="active" href="articles.html">Guides &amp; articles</a></li>
+<li><a href="mon-installation.html">Le Lab</a></li><li><a href="index.html#contact">Contact</a></li>
+</ul></nav></div></header><section class="article-hero"><div class="article-hero-inner">
+<div class="breadcrumb"><a href="index.html">Accueil</a> → <a href="articles.html">Guides</a></div>
+<div class="eyebrow">Électricité & câblage</div><h1>Domotiser ses volets & interrupteurs : comprendre le fil neutre</h1><p class="lead">Pourquoi certains micromodules ont besoin du neutre, comment raisonner face à un boîtier mural et quand arrêter le diagnostic pour faire intervenir un professionnel.</p><div class="meta"><span>⏱️ 6 min</span><span>⚡ Niveau technique</span><span>🔄 Mis à jour en 2026</span></div>
+</div></section>
+<div class="page-wrap"><div class="content-grid"><div>
+<div class="security"><div>⚡</div><div><strong>Rappel de sécurité électrique</strong><p>Avant toute ouverture d'un appareillage, mettez l'installation hors tension et vérifiez l'absence de tension avec un dispositif adapté. Si l'identification des conducteurs ou du circuit n'est pas certaine, n'intervenez pas.</p></div></div>
+<article class="article-body">
+<h2 id="role">1. Pourquoi le neutre est-il important ?</h2>
+<p>Lorsqu'on installe un micromodule connecté derrière un interrupteur mural ou une commande de volet, la première contrainte est souvent la présence du <strong>neutre</strong>. Un module électronique doit être alimenté en permanence pour communiquer avec son réseau domotique, même lorsque la charge commandée est éteinte.</p>
+<p>Dans de nombreuses installations d'éclairage, l'interrupteur mural ne reçoit historiquement que la phase et le retour lampe. Le neutre peut aller directement au luminaire sans passer par la boîte d'encastrement.</p>
+<div class="callout"><strong>En pratique :</strong> un module prévu pour une alimentation phase + neutre doit trouver ces deux conducteurs au point où il est installé. Il existe aussi des modules conçus pour fonctionner sans neutre, mais leurs conditions de compatibilité doivent être respectées.</div>
 
-  <main class="container">
-    <div class="content-container">
+<h2 id="identifier">2. Identifier le câblage sans deviner</h2>
+<p>La couleur des conducteurs donne des indications, mais elle ne doit pas être utilisée comme seule preuve de leur fonction. Une installation ancienne, modifiée ou mal repérée peut présenter des exceptions.</p>
+<ol>
+<li>Mettre le circuit hors tension.</li>
+<li>Effectuer la vérification d'absence de tension selon la procédure appropriée.</li>
+<li>Repérer le câblage existant et la fonction de la commande.</li>
+<li>Comparer le schéma réel au schéma du fabricant du micromodule.</li>
+<li>Si un élément reste ambigu, refermer et faire contrôler l'installation.</li>
+</ol>
 
-      <!-- HEADER ARTICLE -->
-      <header class="article-header">
-        <div class="breadcrumb">
-          <a href="index.html">Accueil</a> &gt; <a href="index.html#articles">Articles</a> &gt; <span>Domotiser ses volets &amp; interrupteurs</span>
-        </div>
-        <h1>Domotiser ses volets &amp; interrupteurs : La règle du Fil Neutre</h1>
-        <div class="meta">
-          Publié le 18 août 2026 • Temps de lecture : 6 min • Par DomoGuide
-        </div>
-      </header>
+<h2 id="volets">3. Cas des volets roulants</h2>
+<p>Une motorisation de volet filaire comporte généralement une alimentation et deux commandes de sens, mais le câblage exact dépend du moteur et de l'installation. Le module choisi doit être spécifiquement prévu pour piloter un moteur de volet et empêcher l'alimentation simultanée des deux sens.</p>
+<div class="method"><strong>À retenir :</strong> ne choisissez pas un micromodule uniquement parce qu'il est Zigbee, Wi-Fi ou Z-Wave. Il doit aussi être électriquement compatible avec la charge, le moteur et le câblage disponibles.</div>
 
-      <!-- ALERT SÉCURITÉ -->
-      <div class="alert-security">
-        <div style="font-size: 1.5rem;">⚡</div>
-        <div>
-          <h3>Rappel de Sécurité Électrique</h3>
-          <p>Avant d'ouvrir un interrupteur ou de toucher aux câbles de vos volets, coupez impérativement le disjoncteur général au tableau et effectuez une <strong>Vérification d'Absence de Tension (VAT)</strong> à l'aide d'un appareil approprié.</p>
-        </div>
-      </div>
+<h2 id="sans-neutre">4. Et si le neutre n'est pas présent ?</h2>
+<p>Plusieurs stratégies existent selon l'installation : utiliser un produit explicitement prévu sans neutre, installer le module à un autre emplacement où l'alimentation complète est disponible, ou modifier le câblage lorsqu'une intervention professionnelle le permet.</p>
+<p>Le bon choix dépend aussi du type de lampe ou de moteur, de la puissance, de la profondeur du boîtier et des contraintes du fabricant.</p>
 
-      <!-- CORPS DE L'ARTICLE -->
-      <article class="article-body">
-        
-        <h2>1. Pourquoi le Fil Neutre est-il crucial en domotique ?</h2>
-        <p>Lorsqu'on souhaite installer un micromodule connecté (Zigbee, Wi-Fi ou Z-Wave) derrière un interrupteur mural classique, on se heurte très souvent à un obstacle technique : <strong>la présence ou l'absence du fil neutre</strong>.</p>
-        <p>Dans une installation électrique standard (notamment en France sur les circuits d'éclairage), l'interrupteur ne coupe que la <strong>Phase (fil rouge ou marron)</strong>. Le <strong>Neutre (fil bleu)</strong> va directement de l'ampoule au tableau électrique. Or, un micromodule connecté est un petit appareil électronique qui a besoin d'être alimenté en permanence en 230V pour recevoir et émettre des signaux radio.</p>
+<h2 id="avant-achat">5. Les vérifications avant achat</h2>
+<ul><li>Présence ou absence du neutre.</li><li>Type exact de charge ou de moteur.</li><li>Puissance admissible du module.</li><li>Profondeur disponible dans le boîtier.</li><li>Protocole et contrôleur compatibles.</li><li>Maintien du contrôle manuel.</li></ul>
 
-        <div class="callout">
-          <h4>En résumé :</h4>
-          <p>Pour fonctionner en continu, le module a besoin d'une alimentation complète : <strong>Phase + Neutre</strong>. S'il n'y a pas de neutre dans le boîtier d'encastrement, le module ne peut pas s'alimenter seul sans passer par la charge (l'ampoule).</p>
-        </div>
+<div class="cta"><p><strong>Vous ne savez pas identifier le câblage ?</strong> DomoGuide ne doit pas deviner à partir d'une description incomplète. Référence du matériel, schéma constructeur ou photo claire permettent de poursuivre le diagnostic plus sérieusement.</p><a class="btn btn-primary" href="index.html#contact">Décrire mon installation →</a></div>
 
-        <h2>2. Comment vérifier la présence du Fil Neutre dans votre boîtier ?</h2>
-        <p>Pour savoir si vous disposez du neutre derrière votre interrupteur d'éclairage ou de volet roulant :</p>
-        <ol>
-          <li>Coupez l'alimentation au disjoncteur général.</li>
-          <li>Démontez la plaque de finition et dévissez le mécanisme de l'interrupteur.</li>
-          <li>Observez les fils présents au fond du boîtier d'encastrement :
-            <ul>
-              <li><strong>Si vous voyez un ou plusieurs fils bleus reliés ensemble au fond du boîtier :</strong> Vous avez le Neutre disponible !</li>
-              <li><strong>Si vous n'avez que 2 fils (souvent un rouge et un marron/orange/violet) :</strong> Vous n'avez pas le Neutre au niveau de l'interrupteur.</li>
-            </ul>
-          </li>
-        </ol>
-
-        <p><em>Note importante : Sur les commandes de <strong>volets roulants</strong>, le Neutre est quasiment toujours présent dans le boîtier d'encastrement car le moteur du volet nécessite obligatoirement la Phase et le Neutre pour fonctionner.</em></p>
-
-        <h2>3. Que faire si vous n'avez pas de Fil Neutre ?</h2>
-        <p>Si vous n'avez pas de fil bleu dans le boîtier de votre interrupteur d'éclairage, deux solutions s'offrent à vous :</p>
-
-        <h3>Option A : Utiliser un module "Sans Neutre" (No Neutral)</h3>
-        <p>De nombreux constructeurs proposent des micromodules spécifiquement conçus pour fonctionner sans neutre. Ils dérivent une infime quantité de courant à travers l'ampoule pour rester alimentés.</p>
-        <p><em>Attention : Pour éviter que votre ampoule LED ne reste légèrement allumée ou ne scintille une fois éteinte, il est souvent nécessaire d'ajouter un composant appelé <strong>Bypass (ou condensateur)</strong> en parallèle aux bornes de l'ampoule.</em></p>
-
-        <h3>Option B : Installer le micromodule au niveau du point lumineux</h3>
-        <p>Au niveau du plafonnier ou du boîtier de l'ampoule, le Neutre est obligatoirement présent. Vous pouvez y placer le module et utiliser l'interrupteur mural existant comme une simple commande filaire.</p>
-
-        <!-- ENCADRÉ RECOMMANDATION / AFFILIATION -->
-        <div class="affiliate-box">
-          <div class="affiliate-box-title">🛒 Matériel recommandé pour vos volets et interrupteurs</div>
-          <p>Que vous ayez le fil neutre ou non, choisissez des modules fiables et certifiés (Sonoff, Shelly, Aqara) pour sécuriser votre installation.</p>
-          <div>
-            <a href="https://www.domadoo.fr/fr/?domid=147" target="_blank" rel="noopener sponsored" class="btn btn-affiliate">Découvrir les modules Volets &amp; Interrupteurs sur Domadoo</a>
-          </div>
-        </div>
-
-        <h2>4. Cas particulier des Volets Roulants</h2>
-        <p>Pour domotiser un volet roulant filaire (à moteur mécanique à 4 fils : Terre, Neutre, Monte, Descend) :</p>
-        <ul>
-          <li>Assurez-vous d'utiliser un module spécialement dédié aux moteurs de volets (intégrant une protection contre l'enclenchement simultané de la montée et de la descente).</li>
-          <li>Privilégiez les modules supportant le <strong>calibrage automatique</strong> pour pouvoir régler précisément les pourcentages d'ouverture (ex: ouvrir à 30%).</li>
-        </ul>
-
-      </article>
-
-    </div>
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <h4>DomoGuide</h4>
-          <p>Le site indépendant de conseils domotiques simples, pratiques et sécurisés.</p>
-        </div>
-        <div class="footer-col">
-          <h4>Navigation</h4>
-          <ul>
-            <li><a href="index.html#quiz">Guide Interactif</a></li>
-            <li><a href="index.html#partenaires">Matériel recommandé</a></li>
-            <li><a href="index.html#articles">Tous les Articles</a></li>
-            <li><a href="securite-electrique.html">Sécurité Électrique</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Mentions &amp; Liens</h4>
-          <ul>
-            <li><a href="mentions-legales.html">Mentions Légales</a></li>
-            <li><a href="politique-de-confidentialite.html">Politique de Confidentialité</a></li>
-            <li><a href="mentions-legales.html#affiliation">Affiliation</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="copyright">
-        <p>&copy; 2026 DomoGuide - Tous droits réservés.</p>
-      </div>
-    </div>
-  </footer>
-
-</body>
-</html>
+<div class="next-links"><a class="next-card" href="securite-electrique.html"><span>Indispensable</span><strong>Les règles de sécurité électrique →</strong></a><a class="next-card" href="article-2.html"><span>Compatibilité</span><strong>Choisir son protocole domotique →</strong></a></div>
+</article></div>
+<aside class="sidebar"><div class="side-card"><h2>Dans ce guide</h2><ul><li><a href="#role">1. Rôle du neutre</a></li><li><a href="#identifier">2. Identifier le câblage</a></li><li><a href="#volets">3. Volets roulants</a></li><li><a href="#sans-neutre">4. Sans neutre</a></li><li><a href="#avant-achat">5. Avant achat</a></li></ul></div></aside>
+</div></div><footer><p>© 2026 DomoGuide. Tous droits réservés.</p>
+<p><a href="mentions-legales.html">Mentions légales</a> — <a href="politique-de-confidentialite.html">Politique de confidentialité</a></p>
+<p class="footer-tagline">DomoGuide — Comprendre • Choisir • Installer • Automatiser • Entretenir</p></footer></body></html>
