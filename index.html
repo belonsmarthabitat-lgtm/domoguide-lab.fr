@@ -1,14 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DomoGuide — Domotique pratique, diagnostic &amp; guides terrain</title>
-  <meta name="description" content="DomoGuide vous aide à comprendre, choisir, installer et automatiser une domotique fiable grâce à des guides terrain et un diagnostic personnalisé.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DomoGuide — Domotique pratique, diagnostic &amp; guides terrain</title>
+<meta content="DomoGuide vous aide à comprendre, choisir, installer et automatiser une domotique fiable grâce à des guides terrain et un diagnostic personnalisé." name="description"/><link href="https://domoguide-lab.fr/" rel="canonical"/><meta content="index, follow, max-image-preview:large" name="robots"/><meta content="#0d665d" name="theme-color"/><!-- Open Graph / partage social --><meta content="website" property="og:type"/><meta content="fr_FR" property="og:locale"/><meta content="DomoGuide" property="og:site_name"/><meta content="DomoGuide — La domotique expliquée par le terrain" property="og:title"/><meta content="Guides pratiques, diagnostic personnalisé et retours terrain pour comprendre, choisir, installer et automatiser une domotique fiable." property="og:description"/><meta content="https://domoguide-lab.fr/" property="og:url"/><meta content="https://domoguide-lab.fr/social-card.png" property="og:image"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="DomoGuide — La domotique expliquée par le terrain" property="og:image:alt"/><!-- X / Twitter Cards --><meta content="summary_large_image" name="twitter:card"/><meta content="DomoGuide — La domotique expliquée par le terrain" name="twitter:title"/><meta content="Guides pratiques, diagnostic personnalisé et retours terrain pour une domotique simple, fiable et adaptée à votre logement." name="twitter:description"/><meta content="https://domoguide-lab.fr/social-card.png" name="twitter:image"/><!-- Icônes --><link href="favicon-32.png" rel="icon" sizes="32x32" type="image/png"/><link href="favicon-192.png" rel="icon" sizes="192x192" type="image/png"/><link href="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
     :root {
       /* Palette dérivée du logo officiel DomoGuide */
       --primary: #0d665d;
@@ -38,7 +39,7 @@
     body { font-family:'Inter',system-ui,-apple-system,sans-serif; color:var(--text-main); background:var(--bg-light); line-height:1.65; }
     a { color:var(--primary); text-decoration:none; transition:.2s ease; }
     a:hover { color:var(--primary-hover); }
-    img { max-width:100%; }
+    img { max-width:100%; height:auto; }
 
     header { background:rgba(255,255,255,.96); border-bottom:1px solid var(--border-color); position:sticky; top:0; z-index:100; backdrop-filter:blur(12px); }
     .nav-container { max-width:1200px; margin:0 auto; padding:.85rem 1.5rem; display:flex; justify-content:space-between; align-items:center; gap:1.5rem; }
@@ -54,6 +55,7 @@
     .hero::after { content:""; position:absolute; width:280px; height:280px; border-radius:50%; background:rgba(201,170,114,.08); left:-110px; bottom:-190px; }
     .hero-content { position:relative; z-index:1; max-width:900px; margin:0 auto; text-align:center; }
     .hero-mark { width:126px; margin:0 auto 1.35rem; padding:.7rem 1rem; background:rgba(255,255,255,.96); border-radius:18px; box-shadow:0 14px 35px rgba(0,0,0,.14); }
+    .hero-mark img { width:100%; height:auto; display:block; }
     .hero-eyebrow { color:#e5c995; font-size:.8rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; margin-bottom:.8rem; }
     .hero h1 { font-size:clamp(2.2rem,5vw,3.8rem); line-height:1.08; letter-spacing:-.035em; margin-bottom:1rem; }
     .hero h1 span { color:#e4c58c; }
@@ -208,156 +210,168 @@
       .hero-actions .btn{width:100%}
     }
   </style>
-</head>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://domoguide-lab.fr/#website",
+      "url": "https://domoguide-lab.fr/",
+      "name": "DomoGuide",
+      "alternateName": "DomoGuide Lab",
+      "inLanguage": "fr-FR",
+      "description": "Guides pratiques, diagnostic personnalisé et retours terrain pour comprendre, choisir, installer et automatiser une domotique fiable."
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://domoguide-lab.fr/#webpage",
+      "url": "https://domoguide-lab.fr/",
+      "name": "DomoGuide — Domotique pratique, diagnostic & guides terrain",
+      "isPartOf": {
+        "@id": "https://domoguide-lab.fr/#website"
+      },
+      "inLanguage": "fr-FR",
+      "description": "DomoGuide vous aide à comprendre, choisir, installer et automatiser une domotique fiable grâce à des guides terrain et un diagnostic personnalisé."
+    }
+  ]
+}</script></head>
 <body>
-  <header>
-    <div class="nav-container">
-      <a href="index.html" class="logo"><img src="logo.png" alt="Logo DomoGuide"><span>DomoGuide<strong>Lab</strong></span></a>
-      <nav aria-label="Navigation principale">
-        <ul>
-          <li><a href="index.html" class="active">Accueil</a></li>
-          <li><a href="#quiz">Guide interactif</a></li>
-          <li><a href="articles.html">Guides &amp; articles</a></li>
-          <li><a href="mon-installation.html">Le Lab</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="hero-content">
-        <div class="hero-mark"><img src="logo.png" alt="DomoGuide"></div>
-        <div class="hero-eyebrow">Guides • diagnostic • retour terrain</div>
-        <h1>La domotique expliquée <span>par le terrain.</span></h1>
-        <p>Comprendre, choisir et installer une domotique simple, fiable et adaptée à votre logement grâce à des guides pratiques, des retours d'expérience et un assistant personnalisé.</p>
-        <div class="hero-actions">
-          <a href="#quiz" class="btn btn-primary">Trouver ma solution →</a>
-          <a href="articles.html" class="btn btn-outline">Voir les guides</a>
-        </div>
-      </div>
-    </section>
-
-    <div class="container universes" aria-label="Les univers DomoGuide">
-      <div class="universe-grid">
-        <div class="universe-card"><div class="universe-icon">⚡</div><strong>Électricité &amp; installation</strong></div>
-        <div class="universe-card"><div class="universe-icon">🏠</div><strong>Domotique</strong></div>
-        <div class="universe-card"><div class="universe-icon">🌡️</div><strong>Énergie &amp; chauffage</strong></div>
-        <div class="universe-card"><div class="universe-icon">🛡️</div><strong>Sécurité</strong></div>
-        <div class="universe-card"><div class="universe-icon">⚙️</div><strong>Automatisations</strong></div>
-        <div class="universe-card"><div class="universe-icon">🌐</div><strong>Réseau &amp; protocoles</strong></div>
-      </div>
-    </div>
-
-    <section class="tech-section">
-      <div class="container tech-layout">
-        <div>
-          <span class="section-kicker">Écosystèmes &amp; technologies</span>
-          <h2 style="color:var(--secondary);font-size:2rem;line-height:1.2;margin-bottom:.8rem;">Comprendre ce qui peut réellement fonctionner ensemble</h2>
-          <p style="color:var(--text-muted);">DomoGuide aborde les protocoles et plateformes qui structurent une installation connectée : ceux utilisés ou documentés régulièrement, mais aussi les alternatives pertinentes selon les projets.</p>
-          <div class="tech-more"><strong>Et aussi :</strong> Z-Wave, EnOcean et d'autres solutions représentent de vraies possibilités. Même si je ne les utilise pas toutes au quotidien, elles feront progressivement l'objet de guides et de contenus dédiés.</div>
-        </div>
-        <div class="tech-cloud" aria-label="Technologies abordées par DomoGuide">
-          <div class="tech-badge"><img src="logo-zigbee.png" alt="Logo Zigbee" loading="lazy"><span>Zigbee</span></div>
-          <div class="tech-badge"><span class="tech-dot">HA</span><span>Home Assistant</span></div>
-          <div class="tech-badge"><img src="logo-knx.png" alt="Logo KNX NextGen" loading="lazy"><span>KNX</span></div>
-          <div class="tech-badge"><img src="logo-matter.png" alt="Logo Matter" loading="lazy"><span>Matter</span></div>
-          <div class="tech-badge"><span class="tech-dot">TaH</span><span>TaHoma / Somfy</span></div>
-          <div class="tech-badge"><span class="tech-dot">Aq</span><span>Aqara &amp; autres</span></div>
-        </div>
-      </div>
-    </section>
-
-    <div class="container">
-      <section id="quiz" class="quiz-card">
-        <div id="quiz-intro">
-          <span class="section-kicker">Diagnostic DomoGuide</span>
-          <h2 style="color:var(--secondary);font-size:2rem;line-height:1.2;">Quel projet domotique vous correspond ?</h2>
-          <p style="margin:1rem 0;color:var(--text-muted);">En 2 à 3 minutes, DomoGuide analyse votre logement, vos objectifs, votre niveau, votre matériel existant et vos contraintes. Vous pouvez sélectionner jusqu'à <strong>5 objectifs</strong>.</p>
-          <div class="quiz-notice">Le résultat est une orientation personnalisée : DomoGuide privilégie la compatibilité et l'existant avant de proposer du nouveau matériel.</div>
-          <button class="btn btn-primary" style="margin-top:1.25rem" onclick="startQuiz()">Lancer mon diagnostic →</button>
-        </div>
-        <div id="quiz-shell" style="display:none;">
-          <div class="quiz-progress-wrap"><div class="quiz-progress-meta"><span id="quiz-progress-label">Étape 1</span><span id="quiz-progress-percent">0 %</span></div><div class="quiz-progress"><div class="quiz-progress-bar" id="quiz-progress-bar"></div></div></div>
-          <div id="quiz-question"></div>
-        </div>
-        <div id="step-result" class="quiz-step">
-          <div id="result-content"></div>
-          <div class="quiz-actions"><button class="btn btn-secondary" onclick="resetQuiz()">← Recommencer le diagnostic</button><a href="articles.html" class="btn btn-primary">Voir les guides DomoGuide →</a></div>
-        </div>
-        <div class="affiliation-notice">Transparence : les recommandations DomoGuide sont basées sur vos réponses. Certains liens de matériel peuvent être affiliés. Une commission peut être versée à DomoGuide sans surcoût pour vous.</div>
-      </section>
-
-      <section aria-labelledby="why-title">
-        <div class="section-head center"><span class="section-kicker">Pourquoi DomoGuide ?</span><h2 id="why-title">Des conseils pensés pour être utiles sur le terrain</h2></div>
-        <div class="values-grid">
-          <div class="value-card"><div class="value-icon">🔧</div><h3>Expérience terrain</h3><p>Des conseils nourris par des installations et problématiques concrètes.</p></div>
-          <div class="value-card"><div class="value-icon">🧩</div><h3>Compatibilité avant achat</h3><p>Comprendre ce qui fonctionne ensemble avant de dépenser.</p></div>
-          <div class="value-card"><div class="value-icon">⚡</div><h3>Sécurité</h3><p>Ne jamais sacrifier les bonnes pratiques électriques à la facilité.</p></div>
-          <div class="value-card"><div class="value-icon">📚</div><h3>Pédagogie</h3><p>Expliquer pourquoi une solution est adaptée, pas seulement donner une référence.</p></div>
-        </div>
-      </section>
-
-      <section id="articles" style="margin-bottom:4rem;">
-        <div class="section-head" style="display:flex;justify-content:space-between;align-items:end;gap:1rem;flex-wrap:wrap;"><div><span class="section-kicker">À lire maintenant</span><h2>Guides pratiques DomoGuide</h2><p>Des bases claires pour préparer, comprendre et sécuriser votre projet.</p></div><a href="articles.html" class="btn btn-primary">Voir tous les guides →</a></div>
-        <div class="article-grid">
-          <a href="article-1.html" class="article-card"><div class="article-visual">🌱</div><div class="article-content"><strong>Bien débuter en domotique</strong><span>Par quoi commencer quand on n'y connaît rien ?</span></div></a>
-          <a href="article-2.html" class="article-card"><div class="article-visual">📡</div><div class="article-content"><strong>Choisir son protocole</strong><span>Zigbee, Z-Wave, Matter ou Wi-Fi.</span></div></a>
-          <a href="article-3.html" class="article-card"><div class="article-visual">🪟</div><div class="article-content"><strong>Volets &amp; interrupteurs</strong><span>Comprendre le fil neutre et les micromodules.</span></div></a>
-          <a href="securite-electrique.html" class="article-card"><div class="article-visual">⚡</div><div class="article-content"><strong>Sécurité électrique</strong><span>Les précautions essentielles avant toute intervention.</span></div></a>
-        </div>
-      </section>
-
-      <section id="partenaires" class="partner-box">
-        <div><h3 style="font-size:1.3rem;margin-bottom:.45rem;">Du besoin au matériel compatible</h3><p>DomoGuide privilégie d'abord le diagnostic et la compatibilité. Lorsque du matériel est pertinent, les liens partenaires permettent ensuite de retrouver des équipements adaptés.</p></div>
-        <a href="https://www.domadoo.fr/fr/1125-zigbee?domid=147" target="_blank" rel="noopener sponsored" class="btn btn-affiliate">Voir le matériel chez Domadoo</a>
-      </section>
-
-      <section class="lab-card" aria-labelledby="lab-title">
-        <div><span class="section-kicker">Le Lab DomoGuide</span><h2 id="lab-title">Des solutions testées sur une installation réelle</h2><p>Home Assistant, Zigbee, Aqara, TaHoma, AirSend… DomoGuide s'appuie aussi sur une installation réelle et un environnement de test pour confronter la théorie au terrain.</p><a href="mon-installation.html" class="btn btn-primary">Découvrir le Lab →</a></div>
-        <div class="lab-visual"><img src="logo.png" alt="DomoGuide Lab"></div>
-      </section>
-
-      <section id="apropos" class="about-wrap">
-        <div class="about-card">
-          <div class="handwritten">Quelques mots derrière DomoGuide…</div>
-          <div class="pen-mark"><span class="pen-icon">✒️</span><span>Une approche née du terrain</span></div>
-          <h2>Technicien en bâtiment connecté &amp; électricien</h2>
-          <p>Ancien militaire et marin-pêcheur, c'est par passion et en autodidacte que j'ai découvert l'univers de la domotique il y a six ans, avant d'en faire mon métier en passant un diplôme de <strong>Technicien du Bâtiment Connecté</strong>. J'ai également suivi une <strong>formation KNX</strong>, afin d'élargir ma compréhension des architectures de bâtiment connecté.</p>
-          <p>Au quotidien sur le terrain, j'interviens en électricité générale, bornes de recharge IRVE, panneaux solaires, courants faibles, alarmes, vidéoprotection, automatismes de portails et sécurisation de sites éoliens.</p>
-          <p>Chez moi, mon installation tourne au cœur d'un système <strong>Home Assistant</strong> couplé à des passerelles comme <strong>Aqara</strong>, <strong>TaHoma</strong> ou <strong>AirSend</strong>. Pas de théories abstraites ici : à travers DomoGuide, je mets cette expérience du terrain au service d'une maison connectée simple, fiable, utile et sans erreurs.</p>
-          <div class="about-signature">Comprendre avant d'acheter, vérifier avant d'installer.</div>
-          <a href="mon-installation.html" class="btn btn-primary">Découvrir mon installation →</a>
-        </div>
-      </section>
-
-      <section id="contact" class="contact-card">
-        <span class="section-kicker">Contact</span>
-        <h2>Une question ou une suggestion ?</h2>
-        <p>Vous pouvez me contacter directement via ce formulaire. Pour une question technique, décrivez autant que possible votre installation, le matériel concerné et le résultat recherché.</p>
-        <form class="contact-form" action="https://formspree.io/f/xvzlgdqk" method="POST">
-          <div class="form-grid">
-            <div class="form-group"><label for="contact-name">Nom</label><input id="contact-name" type="text" name="nom" autocomplete="name" required></div>
-            <div class="form-group"><label for="contact-email">Adresse e-mail</label><input id="contact-email" type="email" name="email" autocomplete="email" required></div>
-            <div class="form-group full"><label for="contact-subject">Objet</label><select id="contact-subject" name="objet" required><option value="" selected disabled>Choisir un sujet</option><option value="Question domotique">Question domotique</option><option value="Suggestion ou correction">Suggestion ou correction</option><option value="Partenariat">Partenariat</option><option value="Autre demande">Autre demande</option></select></div>
-            <div class="form-group full"><label for="contact-message">Message</label><textarea id="contact-message" name="message" placeholder="Décrivez votre demande..." required></textarea></div>
-          </div>
-          <p class="form-help">Les informations saisies sont utilisées pour répondre à votre demande et sont transmises via Formspree pour l'acheminement du message. Consultez la <a href="politique-de-confidentialite.html">politique de confidentialité</a>.</p>
-          <button type="submit" class="btn btn-primary">Envoyer le message</button>
-        </form>
-      </section>
-    </div>
-  </main>
-
-  <footer>
-    <p>&copy; 2026 DomoGuide Lab. Édité par Yohann DESCAMPS. Tous droits réservés.</p>
-    <p style="margin-top:.45rem;"><a href="#contact">Contact</a> — <a href="mentions-legales.html">Mentions légales</a> — <a href="politique-de-confidentialite.html">Politique de confidentialité</a></p>
-    <div class="footer-tagline">Comprendre • Choisir • Installer • Automatiser • Entretenir</div>
-  </footer>
-
-  <!-- SCRIPT DU QUIZ / MOTEUR DE DIAGNOSTIC V1 -->
-  <script>
+<header>
+<div class="nav-container">
+<a class="logo" href="index.html"><img alt="Logo DomoGuide" decoding="async" height="145" src="logo.png" width="306"/><span>DomoGuide<strong>Lab</strong></span></a>
+<nav aria-label="Navigation principale">
+<ul>
+<li><a class="active" href="index.html">Accueil</a></li>
+<li><a href="#quiz">Guide interactif</a></li>
+<li><a href="articles.html">Guides &amp; articles</a></li>
+<li><a href="mon-installation.html">Le Lab</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<main>
+<section class="hero">
+<div class="hero-content">
+<div class="hero-mark"><img alt="" aria-hidden="true" decoding="async" height="145" src="logo.png" width="306"/></div>
+<div class="hero-eyebrow">Guides • diagnostic • retour terrain</div>
+<h1>La domotique expliquée <span>par le terrain.</span></h1>
+<p>Comprendre, choisir et installer une domotique simple, fiable et adaptée à votre logement grâce à des guides pratiques, des retours d'expérience et un assistant personnalisé.</p>
+<div class="hero-actions">
+<a class="btn btn-primary" href="#quiz">Trouver ma solution →</a>
+<a class="btn btn-outline" href="articles.html">Voir les guides</a>
+</div>
+</div>
+</section>
+<div aria-label="Les univers DomoGuide" class="container universes">
+<div class="universe-grid">
+<div class="universe-card"><div class="universe-icon">⚡</div><strong>Électricité &amp; installation</strong></div>
+<div class="universe-card"><div class="universe-icon">🏠</div><strong>Domotique</strong></div>
+<div class="universe-card"><div class="universe-icon">🌡️</div><strong>Énergie &amp; chauffage</strong></div>
+<div class="universe-card"><div class="universe-icon">🛡️</div><strong>Sécurité</strong></div>
+<div class="universe-card"><div class="universe-icon">⚙️</div><strong>Automatisations</strong></div>
+<div class="universe-card"><div class="universe-icon">🌐</div><strong>Réseau &amp; protocoles</strong></div>
+</div>
+</div>
+<section class="tech-section">
+<div class="container tech-layout">
+<div>
+<span class="section-kicker">Écosystèmes &amp; technologies</span>
+<h2 style="color:var(--secondary);font-size:2rem;line-height:1.2;margin-bottom:.8rem;">Comprendre ce qui peut réellement fonctionner ensemble</h2>
+<p style="color:var(--text-muted);">DomoGuide aborde les protocoles et plateformes qui structurent une installation connectée : ceux utilisés ou documentés régulièrement, mais aussi les alternatives pertinentes selon les projets.</p>
+<div class="tech-more"><strong>Et aussi :</strong> Z-Wave, EnOcean et d'autres solutions représentent de vraies possibilités. Même si je ne les utilise pas toutes au quotidien, elles feront progressivement l'objet de guides et de contenus dédiés.</div>
+</div>
+<div aria-label="Technologies abordées par DomoGuide" class="tech-cloud">
+<div class="tech-badge"><img alt="Logo Zigbee" decoding="async" height="320" loading="lazy" src="logo-zigbee.png" width="320"/><span>Zigbee</span></div>
+<div class="tech-badge"><span class="tech-dot">HA</span><span>Home Assistant</span></div>
+<div class="tech-badge"><img alt="Logo KNX NextGen" decoding="async" height="410" loading="lazy" src="logo-knx.png" width="636"/><span>KNX</span></div>
+<div class="tech-badge"><img alt="Logo Matter" decoding="async" height="600" loading="lazy" src="logo-matter.png" width="600"/><span>Matter</span></div>
+<div class="tech-badge"><span class="tech-dot">TaH</span><span>TaHoma / Somfy</span></div>
+<div class="tech-badge"><span class="tech-dot">Aq</span><span>Aqara &amp; autres</span></div>
+</div>
+</div>
+</section>
+<div class="container">
+<section class="quiz-card" id="quiz">
+<div id="quiz-intro">
+<span class="section-kicker">Diagnostic DomoGuide</span>
+<h2 style="color:var(--secondary);font-size:2rem;line-height:1.2;">Quel projet domotique vous correspond ?</h2>
+<p style="margin:1rem 0;color:var(--text-muted);">En 2 à 3 minutes, DomoGuide analyse votre logement, vos objectifs, votre niveau, votre matériel existant et vos contraintes. Vous pouvez sélectionner jusqu'à <strong>5 objectifs</strong>.</p>
+<div class="quiz-notice">Le résultat est une orientation personnalisée : DomoGuide privilégie la compatibilité et l'existant avant de proposer du nouveau matériel.</div>
+<button class="btn btn-primary" onclick="startQuiz()" style="margin-top:1.25rem">Lancer mon diagnostic →</button>
+</div>
+<div id="quiz-shell" style="display:none;">
+<div class="quiz-progress-wrap"><div class="quiz-progress-meta"><span id="quiz-progress-label">Étape 1</span><span id="quiz-progress-percent">0 %</span></div><div class="quiz-progress"><div class="quiz-progress-bar" id="quiz-progress-bar"></div></div></div>
+<div id="quiz-question"></div>
+</div>
+<div class="quiz-step" id="step-result">
+<div id="result-content"></div>
+<div class="quiz-actions"><button class="btn btn-secondary" onclick="resetQuiz()">← Recommencer le diagnostic</button><a class="btn btn-primary" href="articles.html">Voir les guides DomoGuide →</a></div>
+</div>
+<div class="affiliation-notice">Transparence : les recommandations DomoGuide sont basées sur vos réponses. Certains liens de matériel peuvent être affiliés. Une commission peut être versée à DomoGuide sans surcoût pour vous.</div>
+</section>
+<section aria-labelledby="why-title">
+<div class="section-head center"><span class="section-kicker">Pourquoi DomoGuide ?</span><h2 id="why-title">Des conseils pensés pour être utiles sur le terrain</h2></div>
+<div class="values-grid">
+<div class="value-card"><div class="value-icon">🔧</div><h3>Expérience terrain</h3><p>Des conseils nourris par des installations et problématiques concrètes.</p></div>
+<div class="value-card"><div class="value-icon">🧩</div><h3>Compatibilité avant achat</h3><p>Comprendre ce qui fonctionne ensemble avant de dépenser.</p></div>
+<div class="value-card"><div class="value-icon">⚡</div><h3>Sécurité</h3><p>Ne jamais sacrifier les bonnes pratiques électriques à la facilité.</p></div>
+<div class="value-card"><div class="value-icon">📚</div><h3>Pédagogie</h3><p>Expliquer pourquoi une solution est adaptée, pas seulement donner une référence.</p></div>
+</div>
+</section>
+<section id="articles" style="margin-bottom:4rem;">
+<div class="section-head" style="display:flex;justify-content:space-between;align-items:end;gap:1rem;flex-wrap:wrap;"><div><span class="section-kicker">À lire maintenant</span><h2>Guides pratiques DomoGuide</h2><p>Des bases claires pour préparer, comprendre et sécuriser votre projet.</p></div><a class="btn btn-primary" href="articles.html">Voir tous les guides →</a></div>
+<div class="article-grid">
+<a class="article-card" href="article-1.html"><div class="article-visual">🌱</div><div class="article-content"><strong>Bien débuter en domotique</strong><span>Par quoi commencer quand on n'y connaît rien ?</span></div></a>
+<a class="article-card" href="article-2.html"><div class="article-visual">📡</div><div class="article-content"><strong>Choisir son protocole</strong><span>Zigbee, Z-Wave, Matter ou Wi-Fi.</span></div></a>
+<a class="article-card" href="article-3.html"><div class="article-visual">🪟</div><div class="article-content"><strong>Volets &amp; interrupteurs</strong><span>Comprendre le fil neutre et les micromodules.</span></div></a>
+<a class="article-card" href="securite-electrique.html"><div class="article-visual">⚡</div><div class="article-content"><strong>Sécurité électrique</strong><span>Les précautions essentielles avant toute intervention.</span></div></a>
+</div>
+</section>
+<section class="partner-box" id="partenaires">
+<div><h3 style="font-size:1.3rem;margin-bottom:.45rem;">Du besoin au matériel compatible</h3><p>DomoGuide privilégie d'abord le diagnostic et la compatibilité. Lorsque du matériel est pertinent, les liens partenaires permettent ensuite de retrouver des équipements adaptés.</p></div>
+<a class="btn btn-affiliate" href="https://www.domadoo.fr/fr/1125-zigbee?domid=147" rel="noopener sponsored" target="_blank">Voir le matériel chez Domadoo</a>
+</section>
+<section aria-labelledby="lab-title" class="lab-card">
+<div><span class="section-kicker">Le Lab DomoGuide</span><h2 id="lab-title">Des solutions testées sur une installation réelle</h2><p>Home Assistant, Zigbee, Aqara, TaHoma, AirSend… DomoGuide s'appuie aussi sur une installation réelle et un environnement de test pour confronter la théorie au terrain.</p><a class="btn btn-primary" href="mon-installation.html">Découvrir le Lab →</a></div>
+<div class="lab-visual"><img alt="" aria-hidden="true" decoding="async" height="145" src="logo.png" width="306"/></div>
+</section>
+<section class="about-wrap" id="apropos">
+<div class="about-card">
+<div class="handwritten">Quelques mots derrière DomoGuide…</div>
+<div class="pen-mark"><span class="pen-icon">✒️</span><span>Une approche née du terrain</span></div>
+<h2>Technicien en bâtiment connecté &amp; électricien</h2>
+<p>Ancien militaire et marin-pêcheur, c'est par passion et en autodidacte que j'ai découvert l'univers de la domotique il y a six ans, avant d'en faire mon métier en passant un diplôme de <strong>Technicien du Bâtiment Connecté</strong>. J'ai également suivi une <strong>formation KNX</strong>, afin d'élargir ma compréhension des architectures de bâtiment connecté.</p>
+<p>Au quotidien sur le terrain, j'interviens en électricité générale, bornes de recharge IRVE, panneaux solaires, courants faibles, alarmes, vidéoprotection, automatismes de portails et sécurisation de sites éoliens.</p>
+<p>Chez moi, mon installation tourne au cœur d'un système <strong>Home Assistant</strong> couplé à des passerelles comme <strong>Aqara</strong>, <strong>TaHoma</strong> ou <strong>AirSend</strong>. Pas de théories abstraites ici : à travers DomoGuide, je mets cette expérience du terrain au service d'une maison connectée simple, fiable, utile et sans erreurs.</p>
+<div class="about-signature">Comprendre avant d'acheter, vérifier avant d'installer.</div>
+<a class="btn btn-primary" href="mon-installation.html">Découvrir mon installation →</a>
+</div>
+</section>
+<section class="contact-card" id="contact">
+<span class="section-kicker">Contact</span>
+<h2>Une question ou une suggestion ?</h2>
+<p>Vous pouvez me contacter directement via ce formulaire. Pour une question technique, décrivez autant que possible votre installation, le matériel concerné et le résultat recherché.</p>
+<form action="https://formspree.io/f/xvzlgdqk" class="contact-form" method="POST">
+<div class="form-grid">
+<div class="form-group"><label for="contact-name">Nom</label><input autocomplete="name" id="contact-name" name="nom" required="" type="text"/></div>
+<div class="form-group"><label for="contact-email">Adresse e-mail</label><input autocomplete="email" id="contact-email" name="email" required="" type="email"/></div>
+<div class="form-group full"><label for="contact-subject">Objet</label><select id="contact-subject" name="objet" required=""><option disabled="" selected="" value="">Choisir un sujet</option><option value="Question domotique">Question domotique</option><option value="Suggestion ou correction">Suggestion ou correction</option><option value="Partenariat">Partenariat</option><option value="Autre demande">Autre demande</option></select></div>
+<div class="form-group full"><label for="contact-message">Message</label><textarea id="contact-message" name="message" placeholder="Décrivez votre demande..." required=""></textarea></div>
+</div>
+<p class="form-help">Les informations saisies sont utilisées pour répondre à votre demande et sont transmises via Formspree pour l'acheminement du message. Consultez la <a href="politique-de-confidentialite.html">politique de confidentialité</a>.</p>
+<button class="btn btn-primary" type="submit">Envoyer le message</button>
+</form>
+</section>
+</div>
+</main>
+<footer>
+<p>© 2026 DomoGuide Lab. Édité par Yohann DESCAMPS. Tous droits réservés.</p>
+<p style="margin-top:.45rem;"><a href="#contact">Contact</a> — <a href="mentions-legales.html">Mentions légales</a> — <a href="politique-de-confidentialite.html">Politique de confidentialité</a></p>
+<div class="footer-tagline">Comprendre • Choisir • Installer • Automatiser • Entretenir</div>
+</footer>
+<!-- SCRIPT DU QUIZ / MOTEUR DE DIAGNOSTIC V1 -->
+<script>
     const OBJECTIVES = {
       energie: { label: "💶 Réduire ma consommation d'énergie", universe: "energy" },
       chauffage: { label: "🌡️ Mieux gérer mon chauffage", universe: "energy" },
