@@ -3,132 +3,175 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guides & Tutoriels Domotique — Domoguide Lab</title>
-  <meta name="description" content="Découvrez nos guides, comparatifs et tutoriels domotique pour débutants et passionnés. Domotiser en toute sécurité.">
+  <title>Guides domotique pratiques — DomoGuide</title>
+  <meta name="description" content="Guides pratiques DomoGuide pour comprendre, choisir, installer et sécuriser votre domotique : débuter, protocoles, volets, électricité et retours terrain.">
+  <link rel="canonical" href="https://domoguide-lab.fr/articles.html">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#0d665d">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="DomoGuide">
+  <meta property="og:title" content="Guides domotique pratiques — DomoGuide">
+  <meta property="og:description" content="Des guides terrain pour comprendre, choisir, installer et sécuriser une domotique fiable.">
+  <meta property="og:url" content="https://domoguide-lab.fr/articles.html">
+  <meta property="og:image" content="https://domoguide-lab.fr/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="favicon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary: #0284c7;
-      --primary-hover: #0369a1;
-      --secondary: #0f172a;
-      --accent: #10b981;
-      --bg-light: #f8fafc;
-      --text-dark: #1e293b;
-      --text-muted: #64748b;
-      --border-color: #e2e8f0;
-      --card-bg: #ffffff;
-      --radius: 12px;
-      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-      --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    :root{
+      --primary:#0d665d;--primary-hover:#084f49;--primary-soft:#eaf5f2;
+      --secondary:#273436;--accent:#c9aa72;--accent-soft:#f8f1e5;
+      --bg-light:#f6f8f7;--card-bg:#fff;--text-dark:#273436;--text-main:#3d4b4d;
+      --text-muted:#6d7b7d;--border:#dce5e3;--radius:16px;
+      --shadow:0 8px 24px rgba(39,52,54,.07);--shadow-lg:0 18px 45px rgba(39,52,54,.11)
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; color: var(--text-dark); background-color: var(--bg-light); line-height: 1.6; }
-    a { color: var(--primary); text-decoration: none; transition: color 0.2s; }
-    a:hover { color: var(--primary-hover); }
-
-    /* Header & Navigation */
-    header { background: #ffffff; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; }
-    .nav-container { max-width: 1200px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
-    .logo { font-weight: 800; font-size: 1.35rem; color: var(--secondary); display: flex; align-items: center; gap: 0.6rem; }
-    .logo-icon { width: 36px; height: 36px; background: linear-gradient(135deg, var(--primary), var(--accent)); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; }
-    .logo img { height:46px; width:auto; }
-    .logo span { color: var(--primary); }
-    nav ul { display: flex; list-style: none; gap: 1.75rem; align-items: center; }
-    nav a { color: var(--text-dark); font-weight: 600; font-size: 0.95rem; }
-    nav a:hover, nav a.active { color: var(--primary); }
-
-    /* Page Header */
-    .page-header { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #ffffff; padding: 4rem 1.5rem; text-align: center; }
-    .page-header h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.75rem; }
-    .page-header p { font-size: 1.15rem; color: #94a3b8; max-width: 650px; margin: 0 auto; }
-
-    /* Main Container */
-    .container { max-width: 1200px; margin: 3rem auto; padding: 0 1.5rem; }
-
-    /* Safety Alert Banner */
-    .alert-banner { background-color: #fffbebf5; border-left: 4px solid #f59e0b; padding: 1.25rem 1.5rem; border-radius: 8px; margin-bottom: 2.5rem; display: flex; gap: 1rem; align-items: flex-start; border: 1px solid #fef3c7; }
-    .alert-icon { font-size: 1.5rem; line-height: 1; }
-    .alert-content h4 { color: #92400e; font-weight: 700; font-size: 1rem; margin-bottom: 0.25rem; }
-    .alert-content p { color: #b45309; font-size: 0.9rem; margin: 0; }
-
-    /* Articles Grid */
-    .articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 2rem; margin-bottom: 4rem; }
-    
-    .card { background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border-color); overflow: hidden; box-shadow: var(--shadow); transition: transform 0.25s, box-shadow 0.25s; display: flex; flex-direction: column; }
-    .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
-    
-    .card-header { position: relative; height: 160px; background: #e2e8f0; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-    .card-placeholder { font-size: 3rem; }
-    .card-badge { position: absolute; top: 1rem; left: 1rem; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(4px); color: #ffffff; padding: 0.35rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
-
-    .card-body { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
-    .card-title { font-size: 1.25rem; font-weight: 700; color: var(--secondary); margin-bottom: 0.75rem; line-height: 1.35; }
-    .card-text { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; flex-grow: 1; line-height: 1.5; }
-    
-    .btn-read { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; width: 100%; background: var(--bg-light); color: var(--primary); font-weight: 600; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid var(--border-color); transition: all 0.2s; }
-    .card:hover .btn-read { background: var(--primary); color: #ffffff; border-color: var(--primary); }
-
-    /* Footer */
-    footer { background: var(--secondary); color: #94a3b8; padding: 2.5rem 1.5rem; text-align: center; font-size: 0.875rem; border-top: 1px solid #334155; margin-top: auto; }
-    footer a { color: #cbd5e1; }
-    footer a:hover { color: #ffffff; }
-
-    @media (max-width: 768px) {
-      .nav-container { flex-direction: column; gap: 1rem; text-align: center; }
-      .articles-grid { grid-template-columns: 1fr; }
-      .page-header h1 { font-size: 1.85rem; }
-    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--text-main);background:var(--bg-light);line-height:1.65}
+    a{color:var(--primary);text-decoration:none;transition:.2s ease}
+    a:hover{color:var(--primary-hover)}
+    img{max-width:100%;height:auto}
+    header.site-header{background:rgba(255,255,255,.96);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+    .nav-container{max-width:1200px;margin:0 auto;padding:.85rem 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1.5rem}
+    .logo{display:flex;align-items:center;gap:.7rem;color:var(--secondary);font-size:1.2rem;font-weight:800;white-space:nowrap}
+    .logo img{height:48px;width:auto;display:block}.logo strong{color:var(--primary)}
+    nav ul{display:flex;list-style:none;gap:1.55rem;align-items:center}nav a{color:var(--secondary);font-weight:650;font-size:.92rem}
+    nav a:hover,nav a.active{color:var(--primary)}
+    .hero{position:relative;overflow:hidden;background:linear-gradient(132deg,#273436 0%,#1f3434 48%,#0d665d 120%);color:#fff;padding:4.8rem 1.5rem 4.3rem;text-align:center}
+    .hero:before{content:"";position:absolute;width:380px;height:380px;border-radius:50%;border:1px solid rgba(201,170,114,.28);right:-150px;top:-210px}
+    .hero-content{position:relative;z-index:1;max-width:850px;margin:auto}.eyebrow{color:#e5c995;font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.75rem}
+    .hero h1{font-size:clamp(2.2rem,5vw,3.5rem);line-height:1.08;letter-spacing:-.035em;margin-bottom:1rem}.hero h1 span{color:#e4c58c}
+    .hero p{max-width:720px;margin:0 auto;color:#d4dddd;font-size:1.05rem}
+    .container{max-width:1200px;margin:0 auto;padding:3.5rem 1.5rem}
+    .intro{display:grid;grid-template-columns:1.2fr .8fr;gap:1.2rem;align-items:stretch;margin-bottom:2rem}
+    .intro-card,.safety{border-radius:var(--radius);padding:1.4rem 1.5rem}
+    .intro-card{background:#fff;border:1px solid var(--border);box-shadow:var(--shadow)}
+    .intro-card h2{color:var(--secondary);font-size:1.4rem;margin-bottom:.45rem}
+    .intro-card p{color:var(--text-muted)}
+    .safety{background:var(--accent-soft);border:1px solid #ead7b4;border-left:5px solid var(--accent)}
+    .safety strong{display:block;color:#715b36;margin-bottom:.35rem}.safety p{color:#806a44;font-size:.92rem}
+    .section-head{margin:2.2rem 0 1.4rem}.section-head .kicker{display:inline-block;color:var(--primary);font-size:.76rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;margin-bottom:.45rem}
+    .section-head h2{color:var(--secondary);font-size:clamp(1.6rem,3vw,2.15rem)}
+    .articles-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2rem}
+    .card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:.2s ease}
+    .card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+    .card-visual{min-height:125px;display:flex;align-items:center;justify-content:center;font-size:2.3rem;background:linear-gradient(135deg,var(--primary-soft),var(--accent-soft));position:relative}
+    .badge{position:absolute;left:1rem;top:1rem;background:rgba(39,52,54,.92);color:#fff;border-radius:999px;padding:.35rem .7rem;font-size:.72rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+    .card-body{padding:1.35rem;display:flex;flex-direction:column;flex:1}.card h3{font-size:1.2rem;line-height:1.35;color:var(--secondary);margin-bottom:.65rem}.card p{color:var(--text-muted);font-size:.94rem;margin-bottom:1.15rem;flex:1}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 1rem;border-radius:10px;font-size:.9rem;font-weight:750}
+    .btn-primary{background:var(--primary);color:#fff}.btn-primary:hover{background:var(--primary-hover);color:#fff}
+    .journey{margin-top:2.5rem;background:linear-gradient(105deg,var(--secondary),#30494a);border-left:5px solid var(--accent);color:#fff;border-radius:var(--radius);padding:1.7rem}
+    .journey strong{color:#e4c58c}.journey p{color:#d1dcda;margin-top:.3rem}
+    footer{background:var(--secondary);color:#b8c4c3;padding:2.4rem 1.5rem;text-align:center;font-size:.875rem;border-top:4px solid var(--accent)}
+    footer a{color:#e2ebe9}.footer-tagline{color:#dfc596;font-weight:650;margin-top:.65rem}
+    @media(max-width:800px){.nav-container{flex-direction:column;gap:.7rem;padding:.7rem 1rem}nav ul{flex-wrap:wrap;justify-content:center;gap:.55rem 1rem}.intro{grid-template-columns:1fr}.articles-grid{grid-template-columns:1fr}.hero{padding:3.8rem 1rem 3.4rem}.container{padding:3rem 1rem}}
   </style>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"CollectionPage",
+    "name":"Guides domotique pratiques — DomoGuide",
+    "url":"https://domoguide-lab.fr/articles.html",
+    "description":"Guides pratiques pour comprendre, choisir, installer et sécuriser une domotique fiable.",
+    "inLanguage":"fr-FR",
+    "isPartOf":{"@type":"WebSite","name":"DomoGuide","url":"https://domoguide-lab.fr/"}
+  }
+  </script>
 </head>
 <body>
+<header class="site-header">
+  <div class="nav-container">
+    <a href="index.html" class="logo"><img src="logo.png" alt="Logo DomoGuide"><span>DomoGuide<strong>Lab</strong></span></a>
+    <nav aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a class="active" href="articles.html">Guides &amp; articles</a></li>
+        <li><a href="mon-installation.html">Le Lab</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-  <header>
-    <div class="nav-container">
-      <a href="index.html" class="logo">
-        <img src="logo.png" alt="DomoGuide" style="height:46px;width:auto;display:block;"><span>Domoguide<strong>Lab</strong></span>
-      </a>
-      <nav>
-        <ul>
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="articles.html" class="active">Guides & Tutoriels</a></li>
-          <li><a href="mon-installation.html">Mon Installation</a></li>
-        </ul>
-      </nav>
+<main>
+  <section class="hero">
+    <div class="hero-content">
+      <div class="eyebrow">Comprendre • choisir • installer • automatiser • entretenir</div>
+      <h1>Les guides <span>DomoGuide</span></h1>
+      <p>Des contenus pratiques, pédagogiques et orientés terrain pour construire une domotique fiable, cohérente et adaptée à votre logement.</p>
     </div>
-  </header>
-
-  <section class="page-header">
-    <h1>Guides & Tutoriels Domotique</h1>
-    <p>Des explications claires, des conseils pratiques et des guides de mise en œuvre pour réussir votre maison connectée en toute sécurité.</p>
   </section>
 
-  <main class="container">
-
-    <div class="alert-banner">
-      <div class="alert-icon">⚡</div>
-      <div class="alert-content">
-        <h4>Avertissement de Sécurité Électrique</h4>
-        <p>Toute intervention sur le réseau électrique (230V), l'installation de micromodules ou la modification du tableau comporte des risques d'électrocution et d'incendie. Coupez systématiquement le disjoncteur général avant travaux et faites appel à un électricien qualifié en cas de doute.</p>
-      </div>
+  <div class="container">
+    <div class="intro">
+      <section class="intro-card">
+        <h2>Commencer par le besoin, pas par le produit</h2>
+        <p>DomoGuide vous aide à comprendre votre besoin, vérifier la compatibilité de votre installation et choisir une solution avant d'acheter du matériel.</p>
+      </section>
+      <aside class="safety">
+        <strong>⚡ Sécurité électrique</strong>
+        <p>Toute intervention sur le réseau 230 V demande des compétences adaptées. En cas de doute, faites intervenir un professionnel qualifié.</p>
+      </aside>
     </div>
 
-    <div class="articles-grid">
-      <article class="card"><div class="card-header"><div class="card-placeholder">🧭</div><span class="card-badge">Bien débuter</span></div><div class="card-body"><h2 class="card-title">Par quoi commencer quand on n'y connaît rien ?</h2><p class="card-text">Un guide pas à pas pour démarrer une installation domotique, choisir ses premiers équipements et éviter les erreurs courantes.</p><a href="article-1.html" class="btn-read">Lire l'article →</a></div></article>
-      <article class="card"><div class="card-header"><div class="card-placeholder">📡</div><span class="card-badge">Protocoles</span></div><div class="card-body"><h2 class="card-title">Zigbee, Z-Wave, Matter, Wi-Fi : quel protocole choisir ?</h2><p class="card-text">Comprendre les principales technologies domotiques afin de choisir une base cohérente et évolutive.</p><a href="article-2.html" class="btn-read">Lire l'article →</a></div></article>
-      <article class="card"><div class="card-header"><div class="card-placeholder">⚡</div><span class="card-badge">Électricité & Câblage</span></div><div class="card-body"><h2 class="card-title">Domotiser ses volets & interrupteurs : le fil neutre</h2><p class="card-text">Comprendre le rôle du fil neutre, vérifier sa présence et préparer l'installation d'un micromodule.</p><a href="article-3.html" class="btn-read">Lire l'article →</a></div></article>
-      <article class="card"><div class="card-header"><div class="card-placeholder">🛡️</div><span class="card-badge">Sécurité</span></div><div class="card-body"><h2 class="card-title">Conseils de sécurité électrique en domotique</h2><p class="card-text">Les règles et précautions essentielles avant toute intervention sur une installation électrique.</p><a href="securite-electrique.html" class="btn-read">Lire le guide →</a></div></article>
+    <div class="section-head">
+      <span class="kicker">À lire maintenant</span>
+      <h2>Guides pratiques disponibles</h2>
     </div>
 
-  </main>
+    <section class="articles-grid" aria-label="Liste des guides DomoGuide">
+      <article class="card">
+        <div class="card-visual"><span class="badge">Bien débuter</span>🌱</div>
+        <div class="card-body">
+          <h3>Débuter en domotique : par quoi commencer ?</h3>
+          <p>Un guide pas à pas pour définir vos besoins, choisir une base cohérente et éviter de multiplier les applications et les écosystèmes.</p>
+          <a class="btn btn-primary" href="article-1.html">Lire le guide →</a>
+        </div>
+      </article>
 
-  <footer>
-    <p>&copy; 2026 Domoguide Lab. Édité par Yohann DESCAMPS. Tous droits réservés.</p>
-    <p style="margin-top: 0.5rem; font-size: 0.85rem;">
-      <a href="mentions-legales.html">Mentions Légales</a> — <a href="politique-de-confidentialite.html">Politique de Confidentialité</a>
-    </p>
-  </footer>
+      <article class="card">
+        <div class="card-visual"><span class="badge">Protocoles</span>📡</div>
+        <div class="card-body">
+          <h3>Zigbee, Z-Wave, Matter ou Wi-Fi : que choisir ?</h3>
+          <p>Comprendre les principales technologies domotiques et leurs différences afin de construire une installation cohérente et évolutive.</p>
+          <a class="btn btn-primary" href="article-2.html">Lire le comparatif →</a>
+        </div>
+      </article>
 
+      <article class="card">
+        <div class="card-visual"><span class="badge">Électricité</span>⚡</div>
+        <div class="card-body">
+          <h3>Volets, interrupteurs et fil neutre</h3>
+          <p>Comprendre le rôle du neutre, identifier les contraintes d'un appareillage mural et préparer correctement l'intégration d'un micromodule.</p>
+          <a class="btn btn-primary" href="article-3.html">Lire le guide →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-visual"><span class="badge">Sécurité</span>🛡️</div>
+        <div class="card-body">
+          <h3>Sécurité électrique en domotique</h3>
+          <p>Les précautions essentielles à connaître avant toute intervention sur une installation électrique ou un équipement domotique alimenté en 230 V.</p>
+          <a class="btn btn-primary" href="securite-electrique.html">Lire les règles de sécurité →</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="journey">
+      <strong>La méthode DomoGuide</strong>
+      <p>Comprendre → Choisir → Installer → Automatiser → Entretenir. Chaque nouveau guide viendra progressivement compléter ce parcours.</p>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 DomoGuide. Tous droits réservés.</p>
+  <p><a href="mentions-legales.html">Mentions légales</a> — <a href="politique-de-confidentialite.html">Politique de confidentialité</a></p>
+  <p class="footer-tagline">DomoGuide — Comprendre • Choisir • Installer • Automatiser • Entretenir</p>
+</footer>
 </body>
 </html>
