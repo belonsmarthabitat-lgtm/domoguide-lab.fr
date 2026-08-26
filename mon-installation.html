@@ -1,51 +1,107 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mon installation domotique — DomoGuide Lab</title>
-  <meta name="description" content="Découvrez l'installation domotique réelle derrière DomoGuide Lab : Home Assistant, Aqara, TaHoma, AirSend et équipements utilisés sur le terrain et en test.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le Lab DomoGuide : installation domotique réelle & tests terrain — DomoGuide</title><meta name="description" content="Découvrez le Lab DomoGuide : une installation réelle autour de Home Assistant, Aqara, TaHoma, AirSend et Zigbee pour tester des solutions domotiques sur le terrain.">
+<link rel="canonical" href="https://domoguide-lab.fr/mon-installation.html">
+<meta name="robots" content="index, follow, max-image-preview:large"><meta name="theme-color" content="#0d665d">
+<meta property="og:type" content="website"><meta property="og:locale" content="fr_FR"><meta property="og:site_name" content="DomoGuide">
+<meta property="og:title" content="Le Lab DomoGuide : installation domotique réelle & tests terrain — DomoGuide"><meta property="og:description" content="Découvrez le Lab DomoGuide : une installation réelle autour de Home Assistant, Aqara, TaHoma, AirSend et Zigbee pour tester des solutions domotiques sur le terrain."><meta property="og:url" content="https://domoguide-lab.fr/mon-installation.html">
+<meta property="og:image" content="https://domoguide-lab.fr/social-card.png"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png"><link rel="icon" href="favicon-192.png" sizes="192x192" type="image/png"><link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    :root{--primary:#0284c7;--secondary:#0f172a;--accent:#10b981;--bg:#f8fafc;--text:#334155;--muted:#64748b;--border:#e2e8f0;--radius:12px;--shadow:0 4px 6px -1px rgba(0,0,0,.05)}
-    *{box-sizing:border-box;margin:0;padding:0}body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(--bg);line-height:1.7}a{color:var(--primary);text-decoration:none}a:hover{text-decoration:underline}
-    header{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}.nav-container{max-width:1200px;margin:auto;padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}.logo{display:flex;align-items:center;gap:.6rem;font-weight:800;color:var(--secondary)}.logo img{height:46px;width:auto}.logo span{color:var(--primary)}nav ul{display:flex;list-style:none;gap:1.5rem}nav a{color:var(--text);font-weight:600}
-    .page-header{background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);color:#fff;padding:3.5rem 1.5rem;text-align:center}.page-header h1{font-size:2.35rem;margin-bottom:.6rem}.page-header p{color:#94a3b8;max-width:720px;margin:auto}
-    main{max-width:950px;margin:0 auto;padding:3rem 1.5rem 4rem}.card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:2.25rem;box-shadow:var(--shadow);margin-bottom:1.5rem}.badge{display:inline-block;background:#ecfdf5;color:#047857;font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;padding:.35rem .75rem;border-radius:999px;margin-bottom:1rem}.card h2{color:var(--secondary);font-size:1.65rem;margin-bottom:.8rem}.card p{color:var(--muted);margin-bottom:1rem}.stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem;margin:1.5rem 0}.stack-item{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:1rem}.stack-item strong{display:block;color:var(--secondary);margin-bottom:.25rem}.stack-item span{color:var(--muted);font-size:.9rem}.cta{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.25rem}.btn{display:inline-block;background:var(--primary);color:#fff;padding:.75rem 1.15rem;border-radius:8px;font-weight:700}.btn:hover{background:#0369a1;color:#fff;text-decoration:none}.btn.secondary{background:var(--bg);color:var(--primary);border:1px solid var(--border)}
-    footer{background:var(--secondary);color:#94a3b8;text-align:center;padding:2rem 1.5rem;font-size:.875rem}footer a{color:#cbd5e1}
-    @media(max-width:768px){.nav-container{flex-direction:column}nav ul{flex-wrap:wrap;justify-content:center;gap:.75rem 1rem}.page-header h1{font-size:1.85rem}.card{padding:1.5rem}}
+    :root{
+      --primary:#0d665d;--primary-hover:#084f49;--primary-soft:#eaf5f2;
+      --secondary:#273436;--accent:#c9aa72;--accent-soft:#f8f1e5;
+      --bg-light:#f6f8f7;--card-bg:#fff;--text-dark:#273436;--text-main:#3d4b4d;
+      --text-muted:#6d7b7d;--border:#dce5e3;--danger:#a33d36;--danger-bg:#fff4f1;
+      --radius:16px;--shadow:0 8px 24px rgba(39,52,54,.07);--shadow-lg:0 18px 45px rgba(39,52,54,.11)
+    }
+    *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+    body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--text-main);background:var(--bg-light);line-height:1.7}
+    a{color:var(--primary);text-decoration:none;transition:.2s ease}a:hover{color:var(--primary-hover)}
+    img{max-width:100%;height:auto}
+    .site-header{background:rgba(255,255,255,.96);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+    .nav-container{max-width:1200px;margin:auto;padding:.85rem 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1.5rem}
+    .logo{display:flex;align-items:center;gap:.7rem;color:var(--secondary);font-size:1.2rem;font-weight:800;white-space:nowrap}
+    .logo img{height:48px;width:auto;display:block}.logo strong{color:var(--primary)}
+    nav ul{display:flex;list-style:none;gap:1.55rem;align-items:center}nav a{color:var(--secondary);font-weight:650;font-size:.92rem}nav a:hover,nav a.active{color:var(--primary)}
+    .article-hero{background:linear-gradient(132deg,#273436 0%,#1f3434 48%,#0d665d 120%);color:#fff;padding:4.6rem 1.5rem 3.6rem;position:relative;overflow:hidden}
+    .article-hero:after{content:"";position:absolute;width:360px;height:360px;border-radius:50%;border:1px solid rgba(201,170,114,.28);right:-160px;top:-210px}
+    .article-hero-inner{max-width:920px;margin:auto;position:relative;z-index:1}.breadcrumb{font-size:.86rem;color:#c6d2d1;margin-bottom:1.1rem}.breadcrumb a{color:#e6cf9f}
+    .eyebrow{color:#e5c995;font-size:.78rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase;margin-bottom:.75rem}
+    h1{font-size:clamp(2.15rem,5vw,3.45rem);line-height:1.08;letter-spacing:-.035em;max-width:920px}
+    .lead{margin-top:1rem;max-width:790px;color:#d3dddd;font-size:1.06rem}.meta{display:flex;flex-wrap:wrap;gap:.7rem 1rem;margin-top:1.35rem;color:#c5d1cf;font-size:.88rem}
+    .page-wrap{max-width:1100px;margin:auto;padding:2.6rem 1.5rem 4rem}.content-grid{display:grid;grid-template-columns:minmax(0,760px) 250px;gap:2rem;align-items:start}
+    .article-body{background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:2.2rem}
+    .article-body>p:first-child{font-size:1.07rem;color:var(--text-dark)}.article-body h2{color:var(--secondary);font-size:1.58rem;line-height:1.25;margin:2.3rem 0 .85rem}
+    .article-body h3{color:var(--secondary);font-size:1.17rem;line-height:1.35;margin:1.6rem 0 .55rem}.article-body p{margin-bottom:1.1rem}
+    .article-body ul,.article-body ol{margin:0 0 1.4rem 1.25rem}.article-body li{margin-bottom:.55rem;padding-left:.15rem}
+    .highlight,.callout{background:var(--primary-soft);border:1px solid #cfe7e1;border-left:5px solid var(--primary);border-radius:12px;padding:1.15rem 1.2rem;margin:1.5rem 0}
+    .method{background:var(--accent-soft);border:1px solid #ead7b4;border-left:5px solid var(--accent);border-radius:12px;padding:1.15rem 1.2rem;margin:1.5rem 0}
+    .security{background:var(--danger-bg);border:1px solid #f2d7d0;border-left:5px solid var(--danger);border-radius:var(--radius);padding:1.2rem 1.3rem;margin-bottom:1.3rem;display:flex;gap:.9rem}
+    .security strong{display:block;color:#7f302b;margin-bottom:.25rem}.security p{color:#80524e;font-size:.94rem}
+    .table-wrap{overflow-x:auto;margin:1.4rem 0}.comparison-table{width:100%;border-collapse:collapse;font-size:.91rem;min-width:650px}
+    .comparison-table th,.comparison-table td{padding:.8rem;border:1px solid var(--border);text-align:left;vertical-align:top}.comparison-table th{background:var(--primary-soft);color:var(--secondary)}
+    .cta{background:linear-gradient(120deg,var(--secondary),#30494a);border-left:5px solid var(--accent);border-radius:14px;padding:1.35rem;margin:2rem 0;color:#fff}
+    .cta p{color:#d5dfde;margin-bottom:1rem}.btn{display:inline-flex;align-items:center;justify-content:center;padding:.78rem 1rem;border-radius:10px;font-size:.91rem;font-weight:750}
+    .btn-primary{background:var(--primary);color:#fff}.btn-primary:hover{background:var(--primary-hover);color:#fff}.btn-affiliate{background:var(--accent);color:var(--secondary)}
+    .sidebar{position:sticky;top:88px}.side-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:1.15rem;box-shadow:var(--shadow);margin-bottom:1rem}
+    .side-card h2{font-size:1rem;color:var(--secondary);margin-bottom:.65rem}.side-card ul{list-style:none}.side-card li+li{margin-top:.55rem}.side-card a{font-size:.88rem;line-height:1.35}.side-card p{font-size:.88rem;color:var(--text-muted)}
+    .next-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1.3rem}.next-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.1rem;box-shadow:var(--shadow)}
+    .next-card span{display:block;color:var(--primary);font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.35rem}.next-card strong{color:var(--secondary);line-height:1.35}
+    .checklist{background:var(--bg-light);border:1px solid var(--border);border-radius:12px;padding:1rem 1.15rem;margin:1rem 0}.check{display:flex;gap:.7rem;margin:.8rem 0}.check span{color:var(--primary);font-weight:800}
+    footer{background:var(--secondary);color:#b8c4c3;padding:2.4rem 1.5rem;text-align:center;font-size:.875rem;border-top:4px solid var(--accent)}footer a{color:#e2ebe9}.footer-tagline{color:#dfc596;font-weight:650;margin-top:.65rem}
+    @media(max-width:900px){.content-grid{grid-template-columns:1fr}.sidebar{position:static;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.side-card{margin:0}}
+    @media(max-width:720px){.nav-container{flex-direction:column;gap:.7rem;padding:.7rem 1rem}nav ul{flex-wrap:wrap;justify-content:center;gap:.55rem 1rem}.article-hero{padding:3.6rem 1rem 3rem}.page-wrap{padding:2rem 1rem 3rem}.article-body{padding:1.35rem}.sidebar,.next-links{grid-template-columns:1fr}}
   </style>
-</head>
-<body>
-  <header><div class="nav-container"><a href="index.html" class="logo"><img src="logo.png" alt="DomoGuide"><span>DomoGuide <strong>Lab</strong></span></a><nav><ul><li><a href="index.html">Accueil</a></li><li><a href="articles.html">Guides &amp; Tutoriels</a></li><li><a href="mon-installation.html">Mon Installation</a></li><li><a href="index.html#contact">Contact</a></li></ul></nav></div></header>
 
-  <section class="page-header"><h1>🏠 Le Lab &amp; mon installation</h1><p>Une installation domotique réelle, utilisée au quotidien pour expérimenter, tester et documenter les solutions présentées sur DomoGuide.</p></section>
+<script type="application/ld+json">{
+"@context":"https://schema.org","@type":"WebPage","headline":"Le Lab DomoGuide",
+"description":"Découvrez le Lab DomoGuide : une installation réelle autour de Home Assistant, Aqara, TaHoma, AirSend et Zigbee pour tester des solutions domotiques sur le terrain.","inLanguage":"fr-FR","mainEntityOfPage":"https://domoguide-lab.fr/mon-installation.html",
+"author":{"@type":"Organization","name":"DomoGuide"},"publisher":{"@type":"Organization","name":"DomoGuide","url":"https://domoguide-lab.fr/"}
+}</script></head><body><header class="site-header"><div class="nav-container">
+<a href="index.html" class="logo"><img src="logo.png" alt="Logo DomoGuide"><span>DomoGuide<strong>Lab</strong></span></a>
+<nav aria-label="Navigation principale"><ul>
+<li><a href="index.html">Accueil</a></li><li><a href="articles.html">Guides &amp; articles</a></li>
+<li><a class="active" href="mon-installation.html">Le Lab</a></li><li><a href="index.html#contact">Contact</a></li>
+</ul></nav></div></header><section class="article-hero"><div class="article-hero-inner">
+<div class="breadcrumb"><a href="index.html">Accueil</a> → <a href="articles.html">Guides</a></div>
+<div class="eyebrow">Le Lab DomoGuide</div><h1>Une installation réelle pour confronter la théorie au terrain</h1><p class="lead">Le Lab sert de base de test à DomoGuide : compatibilité, automatisations, intégrations, limites et retours d'expérience avant de transformer une idée en recommandation.</p><div class="meta"><span>🏠 Installation réelle</span><span>🧪 Tests terrain</span><span>🔄 Évolutif</span></div>
+</div></section>
+<div class="page-wrap"><div class="content-grid"><div>
+<article class="article-body">
+<p>Le Lab n'est pas un showroom figé. C'est une installation domestique réelle qui évolue avec les besoins, les essais et les technologies disponibles. Elle permet de confronter les documentations et les promesses commerciales à un fonctionnement quotidien.</p>
 
-  <main>
-    <section class="card">
-      <span class="badge">Installation réelle</span>
-      <h2>Mon environnement domotique actuel</h2>
-      <p>Chez moi, le cœur de l'installation repose sur <strong>Home Assistant</strong>, complété par plusieurs passerelles et écosystèmes afin de tester des usages concrets et des solutions réellement rencontrées chez les particuliers.</p>
-      <div class="stack">
-        <div class="stack-item"><strong>Home Assistant</strong><span>Orchestration centrale, automatisations et supervision locale.</span></div>
-        <div class="stack-item"><strong>Aqara</strong><span>Capteurs, périphériques et écosystème Zigbee.</span></div>
-        <div class="stack-item"><strong>TaHoma</strong><span>Intégration et pilotage d'équipements compatibles Somfy.</span></div>
-        <div class="stack-item"><strong>AirSend</strong><span>Passerelle utilisée pour l'intégration de certains automatismes et équipements radio.</span></div>
-      </div>
-      <p>Cette installation évolue en permanence. La page sera progressivement enrichie avec les équipements utilisés, les schémas d'intégration, les choix techniques, les tests et les retours d'expérience.</p>
-    </section>
+<h2 id="coeur">1. Le cœur de l'installation</h2>
+<p><strong>Home Assistant</strong> est utilisé comme plateforme centrale. L'objectif est de pouvoir agréger plusieurs écosystèmes tout en gardant une logique d'automatisation commune et un maximum de contrôle local lorsque c'est pertinent.</p>
 
-    <section class="card">
-      <span class="badge">Expérience terrain</span>
-      <h2>Pourquoi un « Lab » ?</h2>
-      <p>Je suis technicien en bâtiment connecté et électricien. Mon activité terrain couvre notamment l'électricité générale, les bornes IRVE, le solaire, les courants faibles, les alarmes, la vidéoprotection, les automatismes de portails et la sécurisation de sites éoliens.</p>
-      <p>DomoGuide me permet de relier cette expérience professionnelle aux essais réalisés chez moi : l'objectif est de présenter des solutions utiles, compréhensibles et réalistes plutôt que de simples fiches théoriques.</p>
-      <div class="cta"><a href="articles.html" class="btn">Voir les guides →</a><a href="index.html#contact" class="btn secondary">Me contacter</a></div>
-    </section>
-  </main>
+<h2 id="passerelles">2. Passerelles et écosystèmes présents</h2>
+<ul><li><strong>Aqara :</strong> utilisé pour différents équipements et intégrations.</li>
+<li><strong>TaHoma :</strong> présent notamment pour l'écosystème Somfy.</li>
+<li><strong>AirSend :</strong> utilisé comme passerelle sur certaines intégrations radio.</li>
+<li><strong>Zigbee :</strong> fait partie des technologies utilisées dans l'installation.</li></ul>
+<p>Ces éléments ne signifient pas que DomoGuide considère ces marques comme universellement meilleures. Elles représentent simplement une partie de l'environnement réellement utilisé et testé.</p>
 
-  <footer><p>&copy; 2026 DomoGuide Lab. Tous droits réservés.</p><p style="margin-top:.5rem"><a href="index.html#contact">Contact</a> — <a href="mentions-legales.html">Mentions légales</a> — <a href="politique-de-confidentialite.html">Politique de confidentialité</a></p></footer>
-</body>
-</html>
+<h2 id="terrain">3. Ce que le terrain apporte aux guides</h2>
+<ul><li>tester les comportements réels plutôt que se limiter à une fiche produit ;</li>
+<li>observer les interactions entre plusieurs écosystèmes ;</li>
+<li>identifier les contraintes de réseau, de portée ou de maintenance ;</li>
+<li>conserver un retour manuel quand une automatisation ou une plateforme tombe en panne ;</li>
+<li>documenter les problèmes et les corrections.</li></ul>
+
+<div class="method"><strong>Approche DomoGuide :</strong> comprendre avant d'acheter, vérifier avant d'installer.</div>
+
+<h2 id="competences">4. Une approche issue du métier</h2>
+<p>DomoGuide s'appuie sur une expérience de technicien en bâtiment connecté et électricien, complétée par une formation KNX et des interventions en électricité générale, courants faibles, alarmes, vidéoprotection, automatismes, IRVE et installations solaires.</p>
+
+<h2 id="suite">5. Ce qui sera ajouté au Lab</h2>
+<p>Cette page sera enrichie progressivement avec des schémas d'architecture, des retours d'expérience, des équipements testés, des cas de panne et les raisons des choix techniques. L'objectif n'est pas d'exposer chaque appareil de la maison, mais de montrer ce qui peut aider à prendre une meilleure décision.</p>
+
+<div class="cta"><p>Vous cherchez plutôt une recommandation adaptée à votre propre logement ?</p><a class="btn btn-primary" href="index.html#quiz">Construire mon projet →</a></div>
+</article></div>
+<aside class="sidebar"><div class="side-card"><h2>Le Lab</h2><ul><li><a href="#coeur">1. Home Assistant</a></li><li><a href="#passerelles">2. Passerelles</a></li><li><a href="#terrain">3. Tests terrain</a></li><li><a href="#competences">4. Compétences</a></li><li><a href="#suite">5. À venir</a></li></ul></div></aside>
+</div></div><footer><p>© 2026 DomoGuide. Tous droits réservés.</p>
+<p><a href="mentions-legales.html">Mentions légales</a> — <a href="politique-de-confidentialite.html">Politique de confidentialité</a></p>
+<p class="footer-tagline">DomoGuide — Comprendre • Choisir • Installer • Automatiser • Entretenir</p></footer></body></html>
